@@ -30,6 +30,7 @@ function App() {
       <Switch>
         <Route path="/sign-up" exact component={SignUp} />
         <Route path="/sign-in" exact component={SignIn} />
+        <Route path="/magic-link" exact component={MagicLink} />
         <Main>
           <Route exact path="/dashboard" component={Home} />
           <Route exact path="/tables" component={Tables} />

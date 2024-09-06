@@ -225,7 +225,7 @@ export default class SignIn extends Component {
                   </div>
 {/* Magic link */}
 
-                  <Link to="/MagicLink" className="ant-btn ant-btn-default"style={{ width: "100%" }}>
+                  <Link to="/magic-link" className="ant-btn ant-btn-default"style={{ width: "100%" }}>
                   <MagicLinkIcon/>
                   Login with magic link
           </Link>
