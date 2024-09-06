@@ -1,6 +1,6 @@
-body:has(.layout-magic-link){ 
+body:has(.layout-signin){ 
     background-color: #fafdff !important;}
-.layout-magic-link{
+.layout-signin{
         background-color: #fafdff !important;
 
     .sign-img{

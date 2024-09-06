@@ -30,7 +30,7 @@ import {
 
 import { ReactComponent as MicrosoftIcon } from "../assets/icons/microsoft.svg"
 import { ReactComponent as GoogleIcon } from "../assets/icons/google.svg"
-import { ReactComponent as MagicLinkIcon } from "../assets/icons/magicLink.svg"
+import { ReactComponent as WorkMailIcon } from "../assets/icons/WorkMail.svg"
 import { ReactComponent as PassKeyIcon } from "../assets/icons/PassKey.svg"
 
 function onChange(checked) {
@@ -129,7 +129,7 @@ export default class SignIn extends Component {
     };
     return (
       <>
-        <Layout className="layout-default layout-signin">
+        <Layout className="layout-default layout-magic-link">
          
           <Row
             gutter={[24, 0]}
@@ -173,7 +173,7 @@ export default class SignIn extends Component {
                 </div>
                 {/* login seprator */}
                 <div class="login-separator">
-                  <span>Or login with work mail</span>
+                  <span>Or login with MagicLink</span>
                 </div>
 
                 <Form
@@ -196,19 +196,7 @@ export default class SignIn extends Component {
                     <Input placeholder="Email" />
                   </Form.Item>
 
-                  <Form.Item
-                    className="username"
-                    label="Password"
-                    name="password"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your password!",
-                      },
-                    ]}
-                  >
-                    <Input placeholder="Password" />
-                  </Form.Item>
+           
 
                   <Form.Item>
                     <Button
@@ -216,7 +204,7 @@ export default class SignIn extends Component {
                       htmlType="submit"
                       style={{ width: "100%" }}
                     >
-                     Login
+                     Send
                     </Button>
                   </Form.Item>
                   {/* login seprator */}
@@ -224,10 +212,10 @@ export default class SignIn extends Component {
                     <span>Or</span>
                   </div>
 {/* Magic link */}
-<a className="ant-btn ant-btn-default" href="#"  style={{ width: "100%" }}>
-                 <MagicLinkIcon/>
-                    Login with magic link
-                  </a>
+
+                  <Link to="/sign-In" className="ant-btn ant-btn-default"style={{ width: "100%" }}>
+                  Or Login with Work Mail
+                    </Link>
              {/* login seprator */}
              <div class="login-separator">
                     <span>Or</span>
