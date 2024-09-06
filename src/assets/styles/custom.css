@@ -1,0 +1,68 @@
+h1,   h2, h3, h4, h5, h6 {
+    color: #013C68;
+} 
+h1.ant-typography, .ant-typography h1 {
+color: #013C68;
+    }
+    h2.ant-typography, .ant-typography h2 {
+        color: #013C68;
+            }
+            h3.ant-typography, .ant-typography h3 {
+                color: #013C68;
+                    }
+                    h4.ant-typography, .ant-typography h4 {
+                        color: #013C68;
+                            }
+h5.ant-typography, .ant-typography h5 {
+    color: #013C68;
+}
+h6.ant-typography, .ant-typography h6 {
+    color: #013C68;
+        }
+.ant-form-item-label > label{
+    color: #013C68;  
+}
+.ant-btn-default{
+    border-color: #99B1C3;
+    color: #013C68;  
+
+    
+}
+a.ant-btn{
+    line-height: 35px;   
+}
+.ant-btn-default:hover, .ant-btn-default:focus {
+    color: #013C68;
+    border-color: #013C68;
+  
+}
+.ant-btn-primary {
+
+    border-color: #FD5675;
+    background: #FD5675;
+ 
+}
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+  
+    border-color: #FD5675;
+    background: #f96c86;
+
+}
+.text-muted {
+    color: #99B1C3;
+}
+.text-dark {
+    color: #013C68;
+}
+.ant-input:hover, .ant-input:focus, .ant-input-focused  {
+    border-color: #013C68;
+}
+.ant-input {
+
+    border: 1px solid #99b1c3a0;
+color: #013C68;}
+    .ant-input::placeholder {
+        color: #99B1C3; /* Your desired placeholder color */
+        opacity: 1; /* Ensures full opacity */
+        font-weight: 400;
+      }

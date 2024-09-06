@@ -23,7 +23,7 @@ import {
   Switch,
 } from "antd";
 import signinbg from "../assets/images/vr-logo.png";
-import "./SignIn.css";
+import "./MagicLink.css";
 import {
   GoogleOutlined ,
 } from "@ant-design/icons";
@@ -224,21 +224,19 @@ export default class SignIn extends Component {
                     <span>Or</span>
                   </div>
 {/* Magic link */}
-
-                  <Link to="/MagicLink" className="ant-btn ant-btn-default"style={{ width: "100%" }}>
-                  <MagicLinkIcon/>
-                  Login with magic link
-          </Link>
+<a className="ant-btn ant-btn-default" href="#"  style={{ width: "100%" }}>
+                 <MagicLinkIcon/>
+                    Login with magic link
+                  </a>
              {/* login seprator */}
              <div class="login-separator">
                     <span>Or</span>
                   </div>
 {/* passkey */}
-
-                  <Link to="/" className="ant-btn ant-btn-default"style={{ width: "100%" }}>
-                  <PassKeyIcon/>
-                  Login with passkey
-          </Link>
+<a className="ant-btn ant-btn-default" href="#"style={{ width: "100%" }}>
+<PassKeyIcon/>
+                    Login with passkey
+                  </a>
                   <p className="font-semibold text-muted text-center"style={{ marginTop: 16 }}>
                     Don't have an account?{" "}
                     <Link to="/sign-up" className="text-dark font-bold register">
