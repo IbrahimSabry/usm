@@ -23,15 +23,13 @@ import {
   Switch,
 } from "antd";
 import signinbg from "../assets/images/vr-logo.png";
-import "./MagicLink.css";
+import "./Newpass.css";
 import {
   GoogleOutlined ,
 } from "@ant-design/icons";
 
-import { ReactComponent as MicrosoftIcon } from "../assets/icons/microsoft.svg"
-import { ReactComponent as GoogleIcon } from "../assets/icons/google.svg"
-import { ReactComponent as WorkMailIcon } from "../assets/icons/WorkMail.svg"
-import { ReactComponent as PassKeyIcon } from "../assets/icons/PassKey.svg"
+
+import { ReactComponent as LogoutIcon } from "../assets/icons/LogOut.svg"
 
 function onChange(checked) {
   console.log(`switch to ${checked}`);
@@ -129,7 +127,7 @@ export default class SignIn extends Component {
     };
     return (
       <>
-        <Layout className="layout-default layout-magic-link">
+        <Layout className="layout-default layout-new-pass">
          
           <Row
             gutter={[24, 0]}
@@ -155,26 +153,22 @@ export default class SignIn extends Component {
               <div className="signinform" 
             
               >
-                <Title className="" level={3}>Login</Title>
+                <Title className="" level={3}>New Password</Title>
                 <Title className="font-regular text-muted" level={5}>
-                  Welcome back
+                  Welcome Mohamed
                 </Title>
-                <p className="sub-text">Please select methods to login</p>
-                {/* google and microsoft */}
-                <div className="btns-gm">
-                  <a className="ant-btn ant-btn-default" href="#">
-                  <GoogleIcon />
-                    Google
-                  </a>
-                  <a className="ant-btn ant-btn-default" href="#">
-                  <MicrosoftIcon/>
-                    Microsoft
-                  </a>
-                </div>
-                {/* login seprator */}
-                <div class="login-separator">
-                  <span>Or login with MagicLink</span>
-                </div>
+                <div data-show="true" 
+                class="ant-alert ant-alert-error ant-alert-with-description "  >
+                
+                  
+                  <h5 class="ant-alert-message">Alert</h5>
+              
+            
+                  <span class="ant-alert-description">
+                  You must define password
+                    </span></div>
+       
+            <p  style={{ marginTop: '1rem' }}> please define your password</p>
 
                 <Form
                   onFinish={onFinish}
@@ -182,21 +176,33 @@ export default class SignIn extends Component {
                   layout="vertical"
                   className="row-col"
                 >
+          
                   <Form.Item
                     className="username"
-                    label="Email"
-                    name="email"
+                    label="Password"
+                    name="password"
                     rules={[
                       {
                         required: true,
-                        message: "Please input your email!",
+                        message: "Please input your password!",
                       },
                     ]}
                   >
-                    <Input placeholder="Email" />
+                    <Input placeholder="Password" />
                   </Form.Item>
-
-           
+                  <Form.Item
+                    className="username"
+                    label="Confirm Password"
+                    name=" Confirm Password"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please conform your password!",
+                      },
+                    ]}
+                  >
+                    <Input placeholder="Confirm Password" />
+                  </Form.Item>
 
                   <Form.Item>
                     <Button
@@ -207,31 +213,13 @@ export default class SignIn extends Component {
                      Send
                     </Button>
                   </Form.Item>
-                  {/* login seprator */}
-                  <div class="login-separator">
-                    <span>Or</span>
-                  </div>
-{/* Magic link */}
-
-                  <Link to="/sign-In" className="ant-btn ant-btn-default"style={{ width: "100%" }}>
-                  <WorkMailIcon/>
-                  Or Login with Work Mail
-                    </Link>
-             {/* login seprator */}
-             <div class="login-separator">
-                    <span>Or</span>
-                  </div>
+              
 {/* passkey */}
 <a className="ant-btn ant-btn-default" href="#"style={{ width: "100%" }}>
-<PassKeyIcon/>
-                    Login with passkey
+<LogoutIcon/>
+               Logout
                   </a>
-                  <p className="font-semibold text-muted text-center"style={{ marginTop: 16 }}>
-                    Don't have an account?{" "}
-                    <Link to="/sign-up" className="text-dark font-bold register">
-                    Register
-                    </Link>
-                  </p>
+             
                 </Form>
               </div>
             </Col>

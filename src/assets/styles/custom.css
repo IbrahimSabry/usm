@@ -69,3 +69,16 @@ color: #013C68;}
       a:hover {
         color: #FD5675;
     }
+    .ant-alert-error{
+        display: block;
+
+    }
+    .ant-alert-error span{
+        display: block;
+        color: #013C68;
+    }
+ 
+    .ant-alert-error .ant-alert-message{
+    color: #013C68;
+    font-weight: 600;
+         }

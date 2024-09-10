@@ -17,6 +17,8 @@ import Rtl from "./pages/Rtl";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import NewPassword from "./pages/NewPassword";
+import passOrpasskey from "./pages/passOrPasskey";
 import MagicLink from "./pages/MagicLink";
 import Main from "./components/layout/Main";
 import "antd/dist/antd.css";
@@ -31,6 +33,8 @@ function App() {
         <Route path="/sign-up" exact component={SignUp} />
         <Route path="/sign-in" exact component={SignIn} />
         <Route path="/magic-link" exact component={MagicLink} />
+        <Route path="/new-pass" exact component={NewPassword} />
+        <Route path="/pass-or-passkey" exact component={passOrpasskey} />
         <Main>
           <Route exact path="/dashboard" component={Home} />
           <Route exact path="/tables" component={Tables} />

@@ -24,14 +24,12 @@ import {
 } from "antd";
 import signinbg from "../assets/images/vr-logo.png";
 import "./SignIn.css";
-import {
-  GoogleOutlined ,
-} from "@ant-design/icons";
+import { GoogleOutlined } from "@ant-design/icons";
 
-import { ReactComponent as MicrosoftIcon } from "../assets/icons/microsoft.svg"
-import { ReactComponent as GoogleIcon } from "../assets/icons/google.svg"
-import { ReactComponent as MagicLinkIcon } from "../assets/icons/magicLink.svg"
-import { ReactComponent as PassKeyIcon } from "../assets/icons/PassKey.svg"
+import { ReactComponent as MicrosoftIcon } from "../assets/icons/microsoft.svg";
+import { ReactComponent as GoogleIcon } from "../assets/icons/google.svg";
+import { ReactComponent as MagicLinkIcon } from "../assets/icons/magicLink.svg";
+import { ReactComponent as PassKeyIcon } from "../assets/icons/PassKey.svg";
 
 function onChange(checked) {
   console.log(`switch to ${checked}`);
@@ -130,13 +128,10 @@ export default class SignIn extends Component {
     return (
       <>
         <Layout className="layout-default layout-signin">
-         
           <Row
             gutter={[24, 0]}
             justify="space-between"
-            style={{ height: "100vh" , 
-              marginLeft: 0, 
-              marginRight: 0 }}
+            style={{ height: "100vh", marginLeft: 0, marginRight: 0 }}
           >
             <Col
               className="sign-img"
@@ -152,10 +147,10 @@ export default class SignIn extends Component {
               lg={{ span: 18 }}
               md={{ span: 24 }}
             >
-              <div className="signinform" 
-            
-              >
-                <Title className="" level={3}>Login</Title>
+              <div className="signinform">
+                <Title className="" level={3}>
+                  Login
+                </Title>
                 <Title className="font-regular text-muted" level={5}>
                   Welcome back
                 </Title>
@@ -163,11 +158,11 @@ export default class SignIn extends Component {
                 {/* google and microsoft */}
                 <div className="btns-gm">
                   <a className="ant-btn ant-btn-default" href="#">
-                  <GoogleIcon />
+                    <GoogleIcon />
                     Google
                   </a>
                   <a className="ant-btn ant-btn-default" href="#">
-                  <MicrosoftIcon/>
+                    <MicrosoftIcon />
                     Microsoft
                   </a>
                 </div>
@@ -216,33 +211,47 @@ export default class SignIn extends Component {
                       htmlType="submit"
                       style={{ width: "100%" }}
                     >
-                     Login
+                      Login
                     </Button>
                   </Form.Item>
                   {/* login seprator */}
                   <div class="login-separator">
                     <span>Or</span>
                   </div>
-{/* Magic link */}
+                  {/* Magic link */}
 
-                  <Link to="/magic-link" className="ant-btn ant-btn-default"style={{ width: "100%" }}>
-                  <MagicLinkIcon/>
-                  Login with magic link
-          </Link>
-             {/* login seprator */}
-             <div class="login-separator">
+                  <Link
+                    to="/magic-link"
+                    className="ant-btn ant-btn-default"
+                    style={{ width: "100%" }}
+                  >
+                    <MagicLinkIcon />
+                    Login with magic link
+                  </Link>
+                  {/* login seprator */}
+                  <div class="login-separator">
                     <span>Or</span>
                   </div>
-{/* passkey */}
+                  {/* passkey */}
 
-                  <Link to="/" className="ant-btn ant-btn-default"style={{ width: "100%" }}>
-                  <PassKeyIcon/>
-                  Login with passkey
-          </Link>
-                  <p className="font-semibold text-muted text-center"style={{ marginTop: 16 }}>
+                  <Link
+                    to="/"
+                    className="ant-btn ant-btn-default"
+                    style={{ width: "100%" }}
+                  >
+                    <PassKeyIcon />
+                    Login with passkey
+                  </Link>
+                  <p
+                    className="font-semibold text-muted text-center"
+                    style={{ marginTop: 16 }}
+                  >
                     Don't have an account?{" "}
-                    <Link to="/sign-up" className="text-dark font-bold register">
-                    Register
+                    <Link
+                      to="/sign-up"
+                      className="text-dark font-bold register"
+                    >
+                      Register
                     </Link>
                   </p>
                 </Form>

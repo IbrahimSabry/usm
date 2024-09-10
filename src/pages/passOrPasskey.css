@@ -1,0 +1,93 @@
+body:has(.layout-new-pass){ 
+    background-color: #fafdff !important;}
+.layout-new-pass{
+        background-color: #fafdff !important;
+
+    .sign-img{
+        background-image: url(../assets/images/login-bg.jpg);
+        background-repeat: no-repeat;
+        background-position: top;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+    }
+    h5.ant-typography {
+        margin-top: 0 !important;
+    }
+    .sign-img img{width: 200px;
+        margin-bottom: 50px;}
+        .form-container{
+display: flex;
+justify-content: center;
+align-items: center;
+        }
+  
+        h1.ant-typography {
+            margin-bottom: -0.5em;}
+            .btns-gm{
+                display: flex;
+                margin-bottom: 10px;
+            }
+            .btns-gm  .ant-btn-default{
+         
+           
+                width: 48%;
+                margin-right: 2%;
+               
+            }
+           
+          
+        
+         
+           
+                @media (min-width: 1281px) {  .signinform{
+         
+                    width: 40%;
+                     }
+                     .sign-img {
+                        border-right: solid .5px #99B1C3;
+                     }
+        
+                }
+                @media (max-width: 1280px) {  .signinform{
+         
+                    width: 60%;
+                     }
+                     .sign-img{
+                   
+                        background-repeat: no-repeat;
+                        background-position: center;
+                      background-size: cover;
+                      border-bottom: solid .5px #99B1C3;
+                      justify-content: center;
+                     
+                    }
+                    .sign-img img {
+                        width: 140px;
+                        margin-bottom: 20px;
+                        margin-top: 20px;
+                    }
+                    .form-container {
+                        
+                    
+                        margin-top: 10px;
+                    }
+                    h3.ant-typography, h5.ant-typography, .sub-text {
+                        text-align: center;
+                    }
+
+                }
+                @media (max-width: 575px) { 
+                    .signinform{
+         
+                        width: 95%;
+                         }}
+                @media (max-width: 370px) { 
+                .register{display: block;}
+            
+            }
+                
+                
+             
+}
