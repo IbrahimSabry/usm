@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.89" height="19.452" viewBox="0 0 21.89 19.452">
+  <g id="google-authenticator" transform="translate(0 -0.461)">
+    <path id="Path_77095" data-name="Path 77095" d="M490.945,10.188a1.844,1.844,0,0,1-1.845,1.845h-6.364L480,6.5l2.953-5.115a1.845,1.845,0,0,1,3.195,1.845l-2.953,5.115H489.1A1.844,1.844,0,0,1,490.945,10.188Z" transform="translate(-469.055 0)" fill="#1a73e8"/>
+    <path id="Path_77096" data-name="Path 77096" d="M211.429,510.355a1.845,1.845,0,0,1-2.52-.675l-2.953-5.115L203,509.68a1.844,1.844,0,1,1-3.195-1.845l2.953-5.115,3.195-.121,3.195.121,2.953,5.115A1.845,1.845,0,0,1,211.429,510.355Z" transform="translate(-195.011 -490.689)" fill="#ea4335"/>
+    <path id="Path_77097" data-name="Path 77097" d="M205.956,6.5l-.832,2.262-2.362-.417-2.953-5.115A1.844,1.844,0,1,1,203,1.384Z" transform="translate(-195.011 0)" fill="#fbbc04"/>
+    <path id="Path_77098" data-name="Path 77098" d="M10.469,346.1l-2.141,3.689H1.845a1.845,1.845,0,1,1,0-3.689Z" transform="translate(0 -337.757)" fill="#34a853"/>
+    <path id="Path_77099" data-name="Path 77099" d="M346.289,270.734H339.9l3.195-5.534Z" transform="translate(-332.15 -258.702)" fill="#185db7"/>
+  </g>
+</svg>

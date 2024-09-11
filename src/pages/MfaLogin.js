@@ -11,6 +11,7 @@
 */
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Checkbox } from 'antd';
 import {
   Layout,
   Menu,
@@ -23,15 +24,13 @@ import {
   Switch,
 } from "antd";
 import signinbg from "../assets/images/vr-logo.png";
-import "./SignIn.css";
-import {
-  GoogleOutlined ,
-} from "@ant-design/icons";
+import "./MfaLogin.css";
+import { GoogleOutlined } from "@ant-design/icons";
 
-import { ReactComponent as MicrosoftIcon } from "../assets/icons/microsoft.svg"
-import { ReactComponent as GoogleIcon } from "../assets/icons/google.svg"
-import { ReactComponent as MagicLinkIcon } from "../assets/icons/magicLink.svg"
-import { ReactComponent as PassKeyIcon } from "../assets/icons/PassKey.svg"
+import { ReactComponent as MicrosoftIcon } from "../assets/icons/microsoft.svg";
+import { ReactComponent as GoogleIcon } from "../assets/icons/google.svg";
+import { ReactComponent as MagicLinkIcon } from "../assets/icons/magicLink.svg";
+import { ReactComponent as PassKeyIcon } from "../assets/icons/PassKey.svg";
 
 function onChange(checked) {
   console.log(`switch to ${checked}`);
@@ -129,15 +128,12 @@ export default class SignIn extends Component {
     };
     return (
       <>
-        <Layout className="layout-default layout-signin">
-         
+        <Layout className="layout-default layout-mfa-login">
           <Row
             gutter={[24, 0]}
             justify="space-between"
-            style={{ height: "100vh" , 
-              marginLeft: 0, 
-              marginRight: 0 }}
-                 className="d-unset"
+            style={{ height: "100vh", marginLeft: 0, marginRight: 0 }}
+               className="d-unset"
           >
             <Col
               className="sign-img"
@@ -153,69 +149,63 @@ export default class SignIn extends Component {
               lg={{ span: 18 }}
               md={{ span: 24 }}
             >
-              <div className="signinform" 
-            
-              >
-                <Title className="" level={3}>Register</Title>
-                <Title className="font-regular text-muted" level={5}>
-                  Welcome 
+              <div className="signinform">
+                <Title className="" level={3}>
+                  Login
                 </Title>
-                <p className="sub-text">Just enter your Organization Name and 
-business email, <br/>and you will receive a 
-login link in your inbox.</p>
+                <Title className="font-regular text-muted" level={5}>
+                Verify your Identity 
+                </Title>
+                <p className="sub-text">Use your OTP to verify your identity  </p>
+             
             
-
                 <Form
                   onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
                   layout="vertical"
                   className="row-col"
                 >
-                       <Form.Item
-                    className="username"
-                    label="Organization Name"
-                    name="email"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your Organization Name!",
-                      },
-                    ]}
-                  >
-                    <Input placeholder="Organization Name" />
-                  </Form.Item>
-
                   <Form.Item
                     className="username"
-                    label="business email"
-                    name="email"
+                    label="OTP"
+                    name="OTP"
                     rules={[
                       {
                         required: true,
-                        message: "Please input your business email!",
+                        message: "Please input your OTP!",
                       },
                     ]}
                   >
-                    <Input placeholder="business email" />
+                    <Input placeholder="OTP" />
                   </Form.Item>
 
-              
-
                   <Form.Item>
+        <Checkbox>Remember this Device</Checkbox>
+      </Form.Item>
+                  <Form.Item>
+                    
                     <Button
                       type="primary"
                       htmlType="submit"
                       style={{ width: "100%" }}
                     >
-                     Send
+                      Continue  
                     </Button>
                   </Form.Item>
-           
-          
-                  <p className="font-semibold text-muted text-center"style={{ marginTop: 16 }}>
-                  Allready have an account?{" "}
-                    <Link to="/sign-in" className="text-dark font-bold register">
-                    Login
+             
+              
+               
+               
+                  <p
+                    className="font-semibold text-muted text-center"
+                    style={{ marginTop: 16 }}
+                  >
+                   Didn’t work ? {" "}
+                    <Link
+                      to="/sign-up"
+                      className="text-dark font-bold retry"
+                    >
+                      Retry
                     </Link>
                   </p>
                 </Form>

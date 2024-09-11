@@ -1,4 +1,8 @@
-h1,   h2, h3, h4, h5, h6 {
+body{
+    color: #013C68;
+}
+
+h1,   h2, h3, h4, h5, h6 ,li{
     color: #013C68;
 } 
 h1.ant-typography, .ant-typography h1 {
@@ -82,3 +86,32 @@ color: #013C68;}
     color: #013C68;
     font-weight: 600;
          }
+         ::selection {
+          
+            background: #013C68;
+        }
+        .ant-checkbox-wrapper:hover .ant-checkbox-inner, .ant-checkbox:hover .ant-checkbox-inner, .ant-checkbox-input:focus + .ant-checkbox-inner {
+            border-color: #013C68;
+        }
+        .ant-checkbox-checked .ant-checkbox-inner {
+            background-color: #013C68;
+            border-color: #013C68;
+        }
+        .ant-checkbox-inner {
+          border: 1px solid #99B1C3;}
+          .ant-checkbox-wrapper {
+          
+            color: #013C68;}
+            @media (max-width: 992px) { 
+                .d-unset{
+                    display: unset;
+                }
+            
+            }
+
+.ant-modal-title {
+   
+    color: #013C68}
+    .ant-modal-close{
+        color: #FD5675;
+    }

@@ -1,6 +1,6 @@
-body:has(.layout-new-pass){ 
+body:has(.layout-mfa-login){ 
     background-color: #fafdff !important;}
-.layout-new-pass{
+.layout-mfa-login{
         background-color: #fafdff !important;
 
     .sign-img{
@@ -37,10 +37,7 @@ align-items: center;
                
             }
            
-          
-        
-         
-           
+ 
                 @media (min-width: 1281px) {  .signinform{
          
                     width: 40%;
@@ -78,18 +75,14 @@ align-items: center;
                     }
 
                 }
-            
-                    
                 @media (max-width: 575px) { 
                     .signinform{
          
                         width: 95%;
                          }}
                 @media (max-width: 370px) { 
-                .register{display: block;}
-            
-            }
+                .retry{display: block;}}
                 
                 
-      
+             
 }

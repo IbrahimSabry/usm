@@ -135,6 +135,7 @@ export default class SignIn extends Component {
             style={{ height: "100vh" , 
               marginLeft: 0, 
               marginRight: 0 }}
+              className="d-unset"
           >
             <Col
               className="sign-img"
@@ -210,11 +211,11 @@ export default class SignIn extends Component {
                       htmlType="submit"
                       style={{ width: "100%" }}
                     >
-                     Send
+                     Save
                     </Button>
                   </Form.Item>
               
-{/* passkey */}
+{/* logout */}
 <a className="ant-btn ant-btn-default" href="#"style={{ width: "100%" }}>
 <LogoutIcon/>
                Logout

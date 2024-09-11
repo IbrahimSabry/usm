@@ -132,6 +132,7 @@ export default class SignIn extends Component {
             gutter={[24, 0]}
             justify="space-between"
             style={{ height: "100vh", marginLeft: 0, marginRight: 0 }}
+               className="d-unset"
           >
             <Col
               className="sign-img"

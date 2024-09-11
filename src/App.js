@@ -20,6 +20,8 @@ import SignIn from "./pages/SignIn";
 import NewPassword from "./pages/NewPassword";
 import passOrpasskey from "./pages/passOrPasskey";
 import MagicLink from "./pages/MagicLink";
+import MfaLogin from "./pages/MfaLogin";
+import MfaCreate from "./pages/MfaCreate";
 import Main from "./components/layout/Main";
 import "antd/dist/antd.css";
 import "./assets/styles/main.css";
@@ -33,6 +35,8 @@ function App() {
         <Route path="/sign-up" exact component={SignUp} />
         <Route path="/sign-in" exact component={SignIn} />
         <Route path="/magic-link" exact component={MagicLink} />
+        <Route path="/mfa-login" exact component={MfaLogin} />
+        <Route path="/mfa-create" exact component={MfaCreate} />
         <Route path="/new-pass" exact component={NewPassword} />
         <Route path="/pass-or-passkey" exact component={passOrpasskey} />
         <Main>

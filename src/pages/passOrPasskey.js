@@ -136,6 +136,7 @@ export default class SignIn extends Component {
             style={{ height: "100vh" , 
               marginLeft: 0, 
               marginRight: 0 }}
+                 className="d-unset"
           >
             <Col
               className="sign-img"
