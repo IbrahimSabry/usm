@@ -1,23 +1,16 @@
 import React, { useState } from "react";
 import { ReactComponent as LockIcon } from "../assets/icons/Lock.svg";
 import { ReactComponent as SmsIcon } from "../assets/icons/sms.svg";
-
+import { ReactComponent as MicrosoftAuthIcon } from "../assets/icons/microsoft-authenticator.svg";
 import { ReactComponent as LogoutIcon } from "../assets/icons/LogOut.svg";
-import { ReactComponent as googleAuthIcon } from "../assets/icons/google-authenticator.svg";
-import {
-  Layout,
-  Row,
-  Col,
-  Typography,
-  Modal
-} from "antd";
+import { ReactComponent as GoogleAuthIcon } from "../assets/icons/google-authenticator.svg";
+
+import { Layout, Row, Col, Typography, Modal, Input, Form, Button } from "antd";
 import signinbg from "../assets/images/vr-logo.png";
 import qr from "../assets/images/qr/Mask Group 1.png";
 
-import microsoftAuth from "../assets/images/qr/microsoft-authenticator.png";
-import LasstPass from "../assets/images/qr/lastpass.png";
-
 import "./MfaCreate.css";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const { Title } = Typography;
 
@@ -58,7 +51,7 @@ const SignIn = () => {
           marginLeft: 0,
           marginRight: 0,
         }}
-           className="d-unset"
+        className="d-unset"
       >
         <Col
           className="sign-img"
@@ -82,7 +75,10 @@ const SignIn = () => {
             <Title className="font-regular text-muted" level={5}>
               Welcome Mohamed
             </Title>
-            <div data-show="true" className="ant-alert ant-alert-error ant-alert-with-description">
+            <div
+              data-show="true"
+              className="ant-alert ant-alert-error ant-alert-with-description"
+            >
               <h5 className="ant-alert-message">Alert</h5>
               <span className="ant-alert-description">
                 You must add MFA (Multi-factor authentication)
@@ -103,8 +99,6 @@ const SignIn = () => {
               <div className="rec-padge">Recommended</div>
             </div>
 
-
-
             {/* First Modal */}
             <Modal
               title="Set up Authenticator App"
@@ -112,11 +106,11 @@ const SignIn = () => {
               onOk={handleOk}
               onCancel={handleCancel}
               footer={null}
-              width={800} // Set the width here
+              width={800}
             >
               <div
                 style={{
-                  border: "1px solid #1D3C6E",
+                  border: "1px solid #99B1C3",
                   borderRadius: "6px",
                   padding: "16px",
                   display: "flex",
@@ -124,57 +118,119 @@ const SignIn = () => {
                   justifyContent: "space-between",
                 }}
               >
-            <Row
-        gutter={[24, 0]}
-        justify="space-between">
-
-<Col
-      
-          xs={{ span: 24 }}
-          lg={{ span: 8 }}
-          md={{ span: 24 }}
-        >
-<img src={qr} alt="Sign in background" />
-<h6>
-Scan this QR from your 
-authenticator app 
-</h6>
-        </Col>
-        <Col
-      
-      xs={{ span: 24 }}
-      lg={{ span: 16 }}
-      md={{ span: 24 }}
-    >
-
-      <h6>
-      How to use :
-      </h6>
-      <ul>
-        <li>
-     Install an authenticator app on your smartphone, such as:
-     <div
-     className="authen-btn">
-    <div className= "apps-link">
-  
-    <googleAuthIcon/>
-    <h6>
-      Google<br/>Authenticator
-    </h6>
-    </div>
-    <div>
-    <img src={microsoftAuth} alt="google " />
-    <h6>
-      Microsoft<br></br> Authenticator
-    </h6>
-    </div>
-     </div>
-        </li>
-      </ul>
-    </Col>
-        </Row>
+                <Row gutter={[24, 0]} justify="space-between">
+                  <Col xs={{ span: 24 }} lg={{ span: 8 }} md={{ span: 24 }}>
+                    <div className="qr-container text-center">
+                      <img src={qr} alt="QR code" />
+                      <h6>Scan this QR from your authenticator app</h6>
+                    </div>
+                  </Col>
+                  <Col xs={{ span: 24 }} lg={{ span: 16 }} md={{ span: 24 }}>
+                    <h6>How to use :</h6>
+                    <ul className="how-to">
+                      <li>
+                        Install an authenticator app on your smartphone, such
+                        as:
+                        <div className="authen-btn">
+                          <Link className="apps-link">
+                            <GoogleAuthIcon />
+                            <h6>
+                              Google
+                              <br />
+                              Authenticator
+                            </h6>
+                          </Link>
+                          <Link className="apps-link">
+                            <MicrosoftAuthIcon />
+                            <h6>
+                              Microsoft
+                              <br />
+                              Authenticator
+                            </h6>
+                          </Link>
+                          <Link className="apps-link">
+                            <h6>
+                              Any other
+                              <br />
+                              Authenticator
+                            </h6>
+                          </Link>
+                        </div>
+                      </li>
+                      <li>
+                        Scan the QR code inside the authenticator app which you
+                        installed on your phone.
+                      </li>
+                      <li>You will get a code in the authenticator app.</li>
+                      <li>Enter the code in your account here to verify it.</li>
+                    </ul>
+                  </Col>
+                </Row>
               </div>
-  
+              {/* Form to enter 6-digit code */}{" "}
+              <div
+                style={{
+                  border: "1px solid #99B1C3",
+                  borderRadius: "6px",
+                  padding: "16px",
+                }}
+              >
+                {" "}
+                <Row gutter={[24, 0]} justify="space-between">
+                  {" "}
+                  <Col xs={{ span: 24 }}>
+                    {" "}
+                    <div>
+                      {" "}
+                      <Form
+                    
+                        layout="vertical"
+                        className="row-col"
+                      >
+                        {" "}
+                        <Form.Item
+                          label="Enter the 6-digit code you see in the app"
+                          name="code"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Enter the 6-digit code from the app!",
+                            },
+                          ]}
+                        >
+                          {" "}
+                          <Input placeholder="6-digit code" />{" "}
+                        </Form.Item>{" "}
+                        <div style={{ display: "flex", justifyContent: "end" }}>
+                          {" "}
+                          <Form.Item>
+                            {" "}
+                            <Button
+                              type="default"
+                              onClick={handleCancel}  
+                              style={{ marginRight: 10 }}
+                            >
+                              {" "}
+                              cancel{" "}
+                            </Button>{" "}
+                          </Form.Item>{" "}
+                          <Form.Item>
+                            {" "}
+                            <Button
+                              type="primary"
+                              htmlType="submit"
+                              style={{ width: "100%" }}
+                            >
+                              {" "}
+                              Verify{" "}
+                            </Button>{" "}
+                          </Form.Item>{" "}
+                        </div>{" "}
+                      </Form>{" "}
+                    </div>{" "}
+                  </Col>{" "}
+                </Row>{" "}
+              </div>
             </Modal>
 
             {/* Second MFA Option */}
@@ -198,43 +254,80 @@ authenticator app
               onCancel={handleCancel}
               footer={null}
             >
-              <div
-                style={{
-                  border: "1px solid #1D3C6E",
-                  borderRadius: "6px",
-                  padding: "16px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
+              <Form
+                layout="vertical"
+                onFinish={(values) => {
+                  console.log("SMS Auth values:", values);
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <div style={{ marginRight: "16px" }}>
-                    <LockIcon />
-                  </div>
-                  <div>
-                    <h6>SMS Authentication</h6>
-                    <p>Receive verification codes via SMS.</p>
-                  </div>
-                </div>
+                <Form.Item
+                  label="Phone"
+                  name="phone"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter your phone number!",
+                    },
+                  ]}
+                >
+                  <Input
+                    placeholder="+203 123 456 78"
+                    suffix={
+                      <Button type="primary" className="verify-btn">
+                        Verify
+                      </Button>
+                    }
+                  />
+                </Form.Item>
+                <Form.Item
+                  label="Code"
+                  name="code"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter the code sent to your phone!",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Enter code" />
+                </Form.Item>
                 <div
                   style={{
-                    backgroundColor: "#52C41A",
-                    borderRadius: "4px",
-                    padding: "4px 12px",
-                    color: "white",
-                    fontWeight: "bold",
+                    display: "flex",
+                    justifyContent:"end"
                   }}
                 >
-                  Optional
+           <Form.Item>
+  <Button
+    type="default"
+    onClick={handleCancel}  
+    style={{ marginRight: 10 }}
+  >
+    Cancel
+  </Button>
+</Form.Item>
+                  <Form.Item>
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      style={{ width: "100%" }}
+                    >
+                      Submit
+                    </Button>
+                  </Form.Item>
                 </div>
-              </div>
+              </Form>
             </Modal>
-                        {/* logout */}
-                        <a className="ant-btn ant-btn-default" href="#"style={{ width: "100%",marginTop:"10px" }}>
-<LogoutIcon/>
-               Logout
-                  </a>
+
+            {/* Logout Button */}
+            <a
+              className="ant-btn ant-btn-default"
+              href="#"
+              style={{ width: "100%", marginTop: "10px" }}
+            >
+              <LogoutIcon />
+              Logout
+            </a>
           </div>
         </Col>
       </Row>

@@ -13,14 +13,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import {
   Layout,
-  Menu,
+
   Button,
   Row,
   Col,
   Typography,
   Form,
   Input,
-  Switch,
+
 } from "antd";
 import signinbg from "../assets/images/vr-logo.png";
 import "./SignIn.css";

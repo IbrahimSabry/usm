@@ -13,6 +13,7 @@ import { useState } from "react";
 
 import {
   Row,
+  Tabs,
   Col,
   Card,
   Button,
@@ -132,7 +133,28 @@ function Profile() {
       description: "Hi! I need more information…",
     },
   ];
-
+  const onChange = (key) => {
+    console.log(key);
+  };
+  
+  const items = [
+    {
+      key: '1',
+      label: 'Tab 1',
+      children: 'Content of Tab Pane 1',
+    },
+    {
+      key: '2',
+      label: 'Tab 2',
+      children: 'Content of Tab Pane 2',
+    },
+    {
+      key: '3',
+      label: 'Tab 3',
+      children: 'Content of Tab Pane 3',
+    },
+  ];
+  
   const project = [
     {
       img: project1,
@@ -188,11 +210,8 @@ function Profile() {
                 justifyContent: "flex-end",
               }}
             >
-              <Radio.Group defaultValue="a">
-                <Radio.Button value="a">OVERVIEW</Radio.Button>
-                <Radio.Button value="b">TEAMS</Radio.Button>
-                <Radio.Button value="c">PROJECTS</Radio.Button>
-              </Radio.Group>
+          <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+          kkkkkk
             </Col>
           </Row>
         }
