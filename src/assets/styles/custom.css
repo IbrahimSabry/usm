@@ -1,7 +1,15 @@
 body{
     color: #013C68;
 }
-
+.ant-btn-muted {
+    color: #99B1C3;
+    border: #99B1C3 solid 1px;
+    transition: all 1s;
+}
+.ant-btn-muted:hover{
+    color: #013C68;
+    border: #013C68 solid 1px;
+}
 h1,   h2, h3, h4, h5, h6 ,li{
     color: #013C68;
 } 
@@ -50,7 +58,12 @@ a.ant-btn{
   
     border-color: #FD5675;
     background: #f96c86;
+    color: #fff;
 
+}
+
+.ant-btn-primary {
+    color: #fff;
 }
 .text-muted {
     color: #99B1C3;
@@ -118,3 +131,228 @@ color: #013C68;}
     .layout-dashboard .ant-layout {
         
         background: #fafdff;}
+        section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile span.ant-breadcrumb-link {
+            color: #013C68;
+        }
+        section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile span.ant-breadcrumb-separator {
+            color: #013C68;
+        }
+        section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile span.ant-page-header-heading-title {
+            color: #013C68;
+        }
+        .layout-dashboard .ant-breadcrumb > span .ant-breadcrumb-link a {
+            color: #99B1C3;
+        }.profile-nav-bg {
+            height: 150px;}
+            section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .header-control span.ant-input-affix-wrapper.header-search .anticon-search svg path {
+                fill: #99B1C3;
+            }
+            section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .btn-sign-in {
+                color: #013C68;
+            }
+            section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .header-control svg path {
+                fill: #013C68;
+            }
+            .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+                color: #FD5675;
+                text-shadow: 0 0 0.25px currentColor;
+                /* font-weight: 600; */
+            }
+            .ant-card-head .ant-tabs {
+                color: #99B1C3;
+                font-weight: 600; 
+            }
+            .ant-tabs-ink-bar {
+          
+                background: #FD5675;}
+                .ant-tabs-tab:hover {
+                    color: #FD5675;
+                }
+                .ant-card-head-title p {
+                  
+                    color: #99B1C3;
+                 
+                }
+                .form-bg{
+                    background-color: #fafdff;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: #99B1C3 1px solid;
+                }
+                .sec-card{
+           
+                    padding: 10px;
+                    border-radius: 5px;
+                    margin-bottom: 20px;
+                
+                }
+                .sec-card .header{
+                    margin-bottom: 10px;
+                  display: flex;
+                  justify-content: space-between;
+                  border-bottom: #99B1C3 solid 1px;
+                  align-items: center;
+                }
+                .ant-btn-link {
+                    color: #f96c86;
+                    border: none;}
+                    .ant-btn-link:hover {
+                        color: #FD5675;
+                   }
+                   .sec-list .item{
+                    display: flex;
+                    align-items: center;
+                    border-bottom: #99B1C3 dashed 1px;
+                    padding: 8px;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+
+                   }
+                   .sec-list .item  .ant-btn{
+                    padding: 0 3px;
+                   }  
+                      .sec-list .item svg {
+                    width: 20px;
+                    height: auto;
+                   }
+                   .sec-list .item div:has(svg){
+                    align-items: flex-start;
+                    line-height: 1.3;
+                    margin-top: 5px;
+                   }
+                   .sec-list .item   h6{
+                    margin-left: 5px;
+
+                   }
+                   .sec-list .item  .succsess svg path{
+                    fill: #28C841;
+
+                   }
+                   .sec-list .item  .succsess h6{
+                    color: #28C841;
+             
+
+                   }
+                   .sec-list .item  .danger svg path{
+                    fill: #FE5F57;
+
+                   }
+                   .sec-list .item  .danger h6{
+                    color: #FE5F57;
+                
+
+                   }
+                 
+                   .sec-list .item  .muted svg path{
+                    fill: #99B1C3;
+
+                   }
+                   .sec-list .item  .muted h6{
+                    color: #99B1C3;
+                    margin-left: 5px;
+
+                   }
+                   .sec-list .item  .warning svg path{
+                    fill: #FEBC2E;
+
+                   }
+                   .sec-list .item  .warning h6{
+                    color: #FEBC2E;
+                    margin-left: 5px;
+
+                   }
+                   .ant-btn-link:active {
+                    color: #f96c86;}
+                    .ant-btn-link:hover, .ant-btn-link:focus{
+                        color: #f96c86; 
+                    }
+                    .ant-empty-normal {
+                   
+                        color:#99B1C3
+                    }
+                    .ant-empty-img-simple-path {
+                        fill: #eef2f5;
+                    }
+                    .ant-empty-img-simple-ellipse {
+                        fill: #d8e2e9;
+                    }
+                    .ant-card{
+                        color: #013C68;
+                    }
+
+                    .ant-descriptions .ant-descriptions-title{
+                        color:#013C68
+                    }
+                    .ant-descriptions .ant-descriptions-item-label{
+                        color: #99B1C3;
+                    }
+                    .ant-descriptions .ant-descriptions-item-content{
+                        color: #013C68;
+                    }
+
+
+/* MFA btn */
+.border-div {
+    border: 1px solid #99B1C3;
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+  }   
+  .border-div:hover{
+    border: 1px solid #013C68;
+  }    
+  .rec-padge{
+    background-color:#52C41A;
+    border-radius: 5px;
+  
+    padding: 4px 12px;
+    color: white;
+    font-weight: "bold";
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+.border-div svg
+{
+width: 35px;
+}
+
+/* end MFA btn */
+                    /* mfa firstmodal content */
+.authen-btn{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.apps-link{
+    display: flex;
+    border: #99B1C3 solid 1px;
+ justify-content: center;
+ align-items: center;
+ border-radius: 5px;
+ height: 55px;
+ padding: 10px;
+ margin-right: 10px;
+ margin-top: 10px;
+ transition: all .6s;
+}
+.apps-link:hover{
+
+    border: #013C68 solid 1px;
+}
+.apps-link h6{
+    font-size: 14px;
+    margin-left: 5px;
+    line-height: 1.2em;
+
+}
+
+.how-to li{
+    margin-bottom: 10px;
+}
+   /* end mfa firstmodal content */

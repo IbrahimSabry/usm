@@ -24,9 +24,7 @@ import {
 } from "antd";
 import signinbg from "../assets/images/vr-logo.png";
 import "./Newpass.css";
-import {
-  GoogleOutlined ,
-} from "@ant-design/icons";
+
 
 
 import { ReactComponent as LogoutIcon } from "../assets/icons/LogOut.svg"

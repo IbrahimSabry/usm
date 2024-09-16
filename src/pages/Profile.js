@@ -1,16 +1,4 @@
-/*!
-  =========================================================
-  * Muse Ant Design Dashboard - v1.0.0
-  =========================================================
-  * Product Page: https://www.creative-tim.com/product/muse-ant-design-dashboard
-  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-  * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-dashboard/blob/main/LICENSE.md)
-  * Coded by Creative Tim
-  =========================================================
-  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 import { useState } from "react";
-
 import {
   Row,
   Tabs,
@@ -24,16 +12,34 @@ import {
   Switch,
   Upload,
   message,
+  Form,
+  Modal,
+  Input,
+ 
 } from "antd";
-
+import { ReactComponent as LogoutIcon } from "../assets/icons/LogOut.svg";
+import { ReactComponent as DeviceIcon } from "../assets/icons/device.svg";
+import { ReactComponent as EditIcon } from "../assets/icons/Edit Square.svg";
+import { ReactComponent as DeleteIcon } from "../assets/icons/Close Square.svg";
+import { ReactComponent as AproveIcon } from "../assets/icons/aprove.svg";
+import { ReactComponent as PlusIcon } from "../assets/icons/Plus.svg";
+import { ReactComponent as IpsIcon } from "../assets/icons/ip.svg";
+import { ReactComponent as LockIcon } from "../assets/icons/Lock.svg";
+import { ReactComponent as SmsIcon } from "../assets/icons/sms.svg";
+import { ReactComponent as UnlockIcon } from "../assets/icons/Unlock.svg"
+import { ReactComponent as MicrosoftAuthIcon } from "../assets/icons/microsoft-authenticator.svg";
+import { ReactComponent as GoogleAuthIcon } from "../assets/icons/google-authenticator.svg";
 import {
   FacebookOutlined,
   TwitterOutlined,
   InstagramOutlined,
   VerticalAlignTopOutlined,
 } from "@ant-design/icons";
+import "./Profile.css";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-import BgProfile from "../assets/images/bg-profile.jpg";
+
+import BgProfile from "../assets/images/profile-bg.jpg";
 import profilavatar from "../assets/images/face-1.jpg";
 import convesionImg from "../assets/images/face-3.jpg";
 import convesionImg2 from "../assets/images/face-4.jpg";
@@ -43,16 +49,20 @@ import convesionImg5 from "../assets/images/face-2.jpg";
 import project1 from "../assets/images/home-decor-1.jpeg";
 import project2 from "../assets/images/home-decor-2.jpeg";
 import project3 from "../assets/images/home-decor-3.jpeg";
+import qr from "../assets/images/qr/Mask Group 1.png";
+
 const { TabPane } = Tabs;
 
 function Profile() {
   const [activeTab, setActiveTab] = useState("1");
+  const [imageURL, setImageURL] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [form] = Form.useForm();
 
   const handleTabChange = (key) => {
     setActiveTab(key);
   };
-  const [imageURL, setImageURL] = useState(false);
-  const [, setLoading] = useState(false);
 
   const getBase64 = (img, callback) => {
     const reader = new FileReader();
@@ -74,95 +84,38 @@ function Profile() {
 
   const handleChange = (info) => {
     if (info.file.status === "uploading") {
-      setLoading(false);
+      setLoading(true);
       return;
     }
     if (info.file.status === "done") {
       getBase64(info.file.originFileObj, (imageUrl) => {
         setLoading(false);
-        setImageURL(false);
+        setImageURL(imageUrl);
       });
     }
   };
 
-  const pencil = [
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      key={0}
-    >
-      <path
-        d="M13.5858 3.58579C14.3668 2.80474 15.6332 2.80474 16.4142 3.58579C17.1953 4.36683 17.1953 5.63316 16.4142 6.41421L15.6213 7.20711L12.7929 4.37868L13.5858 3.58579Z"
-        className="fill-gray-7"
-      ></path>
-      <path
-        d="M11.3787 5.79289L3 14.1716V17H5.82842L14.2071 8.62132L11.3787 5.79289Z"
-        className="fill-gray-7"
-      ></path>
-    </svg>,
-  ];
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
 
-  const uploadButton = (
-    <div className="ant-upload-text font-semibold text-dark">
-      {<VerticalAlignTopOutlined style={{ width: 20, color: "#000" }} />}
-      <div>Upload New Project</div>
-    </div>
-  );
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
-  const data = [
-    {
-      title: "Sophie B.",
-      avatar: convesionImg,
-      description: "Hi! I need more information…",
-    },
-    {
-      title: "Anne Marie",
-      avatar: convesionImg2,
-      description: "Awesome work, can you…",
-    },
-    {
-      title: "Ivan",
-      avatar: convesionImg3,
-      description: "About files I can…",
-    },
-    {
-      title: "Peterson",
-      avatar: convesionImg4,
-      description: "Have a great afternoon…",
-    },
-    {
-      title: "Nick Daniel",
-      avatar: convesionImg5,
-      description: "Hi! I need more information…",
-    },
-  ];
-
-  const project = [
-    {
-      img: project1,
-      titlesub: "Project #1",
-      title: "Modern",
-      disciption:
-        "As Uber works through a huge amount of internal management turmoil.",
-    },
-    {
-      img: project2,
-      titlesub: "Project #2",
-      title: "Scandinavian",
-      disciption:
-        "Music is something that every person has his or her own specific opinion about.",
-    },
-    {
-      img: project3,
-      titlesub: "Project #3",
-      title: "Minimalist",
-      disciption:
-        "Different people have different taste, and various types of music, Zimbali Resort",
-    },
-  ];
+  const handleAddIP = () => {
+    form
+      .validateFields()
+      .then((values) => {
+        console.log("New IP Added:", values.ipAddress);
+        message.success("IP added successfully!");
+        setIsModalVisible(false);
+        form.resetFields();
+      })
+      .catch((info) => {
+        console.log("Validate Failed:", info);
+      });
+  };
 
   return (
     <>
@@ -175,14 +128,13 @@ function Profile() {
         className="card-profile-head"
         bodyStyle={{ display: "none" }}
         title={
-          <Row justify="space-between" align="middle" gutter={[24, 0]}>
-            <Col span={24} md={12} className="col-info">
+          <Row justify="space-between" align="middle">
+            <Col span={24} md={12}>
               <Avatar.Group>
                 <Avatar size={74} shape="square" src={profilavatar} />
-
                 <div className="avatar-info">
-                  <h4 className="font-semibold m-0">Sarah Jacob</h4>
-                  <p>CEO / Co-Founder</p>
+                  <h4 className="font-semibold m-0">Ezz AboElkheir</h4>
+                  <p>UX/UI Designer</p>
                 </div>
               </Avatar.Group>
             </Col>
@@ -195,134 +147,569 @@ function Profile() {
                 justifyContent: "flex-end",
               }}
             >
-              <Tabs activeKey={activeTab} onChange={handleTabChange}>
-                <TabPane tab="Tab 1" key="1" />
-                <TabPane tab="Tab 2" key="2" />
-                <TabPane tab="Tab 3" key="3" />
-              </Tabs>
+              <Button type="link" className="btn-logout">
+                <LogoutIcon />
+              </Button>
             </Col>
           </Row>
         }
       ></Card>
 
-      {activeTab === "1" && (
-        <Row gutter={[24, 0]}>
-          <Col span={24} md={8} className="mb-24 ">
-            <Card
-              bordered={false}
-              className="header-solid h-full"
-              title={<h6 className="font-semibold m-0">Platform Settings</h6>}
-            >
-              <ul className="list settings-list">
-                <li>
-                  <h6 className="list-header text-sm text-muted">ACCOUNT</h6>
-                </li>
-                <li>
-                  <Switch defaultChecked />
+      <Row gutter={[24, 0]} justify="center">
+        <Col span={24} md={7} className="mb-24">
+          <Card
+            bordered={false}
+            title={<h6 className="font-semibold m-0">Profile Information</h6>}
+            className="header-solid h-full card-profile-information"
+            extra={<Link type="link" style={{color:"#013C68"}}> <EditIcon style={{with:"15px"}}/> </Link>}
+            bodyStyle={{ paddingTop: 0, paddingBottom: 16 }}
+          >
+            <p className="text-dark">
+            UX/UI designer, passionate about developing outstanding and distinctive user experiences through simple and innovative designs.            </p>
+            <hr className="my-25" />
+            <Descriptions title="Details">
+              <Descriptions.Item label="Full Name" span={3}>
+Ezz Aboelkheir                
+              </Descriptions.Item>
+              <Descriptions.Item label="Mobile" span={3}>
+                (+974) 123 456 789
+              </Descriptions.Item>
+              <Descriptions.Item label="Email" span={3}>
+                iz@example.com
+              </Descriptions.Item>
+              <Descriptions.Item label="Location" span={3}>
+                 Cairo, Egypt
+              </Descriptions.Item>
+            </Descriptions>
+          </Card>
+        </Col>
 
-                  <span>Email me when someone follows me</span>
-                </li>
-                <li>
-                  <Switch />
-                  <span>Email me when someone answers me</span>
-                </li>
-                <li>
-                  <Switch defaultChecked />
-                  <span>Email me when someone mentions me</span>
-                </li>
-                <li>
-                  <h6 className="list-header text-sm text-muted m-0">
-                    APPLICATION
-                  </h6>
-                </li>
-                <li>
-                  <Switch defaultChecked />
-                  <span>New launches and projects</span>
-                </li>
-                <li>
-                  <Switch defaultChecked />
-                  <span>Monthly product updates</span>
-                </li>
-                <li>
-                  <Switch defaultChecked />
-                  <span>Subscribe to newsletter</span>
-                </li>
-              </ul>
-            </Card>
-          </Col>
-          <Col span={24} md={8} className="mb-24">
-            <Card
-              bordered={false}
-              title={<h6 className="font-semibold m-0">Profile Information</h6>}
-              className="header-solid h-full card-profile-information"
-              extra={<Button type="link">{pencil}</Button>}
-              bodyStyle={{ paddingTop: 0, paddingBottom: 16 }}
+        <Col span={24} md={17} className="mb-24">
+          <Card
+            bordered={false}
+            className="header-solid h-full"
+            title={
+              <Tabs defaultActiveKey="1" onChange={handleTabChange}>
+                <TabPane tab="Devices " key="1" />
+                <TabPane tab="Password" key="2" />
+                <TabPane tab="Pass Keys" key="3" />
+                <TabPane tab="IPs" key="4" />
+                <TabPane tab="MFA" key="5" />
+              </Tabs>
+            }
+          >
+                {activeTab === "1" && (
+                      <div className="sec-card ">
+   <div className="sec-list">
+               <div className="header">
+                 <h6>Devices</h6>
+               </div>
+             <div className="item">
+               <div className="succsess">
+                 <div style={{ display: "flex" }}>
+                   <DeviceIcon />
+                   <h6>Device Name (Trusted)</h6>
+                 </div>
+
+                 <p className="text-muted">
+                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
+                 </p>
+               </div>
+               <div style={{ display: "flex" }}>
+                 <Button type="link">
+                   <LogoutIcon />
+                 </Button>
+                 <Button type="link">
+                   <EditIcon />
+                 </Button>
+                 <Button type="link">
+                   <DeleteIcon />
+                 </Button>
+               </div>
+             </div>
+             <div className="item">
+               <div className="danger">
+                 <div style={{ display: "flex" }}>
+                   <DeviceIcon />
+                   <h6>Device Name (Rejected )</h6>
+                 </div>
+
+                 <p className="text-muted">
+                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
+                 </p>
+               </div>
+               <div style={{ display: "flex" }}>
+                 <Button type="link">
+                   <LogoutIcon />
+                 </Button>
+                 <Button type="link">
+                   <EditIcon />
+                 </Button>
+                 <Button type="link">
+                   <DeleteIcon />
+                 </Button>
+               </div>
+             </div>
+             <div className="item">
+               <div className="warning">
+                 <div style={{ display: "flex" }}>
+                   <DeviceIcon />
+                   <h6>Device Name <span> (pending - 7 Days left) </span></h6>
+                 </div>
+
+                 <p className="text-muted">
+                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
+                 </p>
+               </div>
+               <div style={{ display: "flex" }}>
+                 <Button type="link">
+                   <LogoutIcon />
+                 </Button>
+                 <Button type="link">
+                   <EditIcon />
+                 </Button>
+                 <Button type="link">
+                   <DeleteIcon />
+                 </Button>
+               </div>
+             </div>
+             <div className="item">
+               <div className="muted">
+                 <div style={{ display: "flex" }}>
+                   <DeviceIcon />
+                   <h6>Device Name (denied) </h6>
+                 </div>
+
+                 <p className="text-muted">
+                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
+                 </p>
+               </div>
+               <div style={{ display: "flex" }}>
+             
+                 <Button type="link">
+                   <AproveIcon />
+                 </Button>
+               </div>
+             </div>
+           </div>
+        
+                      </div>
+          
+            )}
+            {activeTab === "2" && (
+               <div className="sec-card ">
+               <div className="header">
+                 <h6>Change Password</h6>
+               </div>
+
+               <Form layout="vertical" className="row-col form-bg">
+                 <Form.Item
+                   className="username"
+                   label="New Password"
+                   name="New Password"
+                   rules={[
+                     {
+                       required: true,
+                       message: "Please enter new password!",
+                     },
+                   ]}
+                 >
+                   <Input placeholder="New Password" />
+                 </Form.Item>
+                 <Form.Item
+                   className="username"
+                   label="Confirm Password"
+                   name=" Confirm Password"
+                   rules={[
+                     {
+                       required: true,
+                       message: "Please conform your password!",
+                     },
+                   ]}
+                 >
+                   <Input placeholder="Confirm Password" />
+                 </Form.Item>
+
+                 <div style={{ display: "flex", justifyContent: "end" }}>
+                   <Form.Item>
+                     <Button type="default" style={{ marginRight: 10 }}>
+                       Discard
+                     </Button>
+                   </Form.Item>
+                   <Form.Item>
+                     <Button type="primary" htmlType="submit">
+                       Submit
+                     </Button>
+                   </Form.Item>
+                 </div>
+               </Form>
+             </div>
+            )}
+
+        
+  {activeTab === "3" && (
+           <div className="sec-card ">
+           <div className="header">
+             <h6>Pass Key</h6>
+             <Button type="link" primary>
+               <PlusIcon/>
+            Add New
+             </Button>
+           </div>
+           <div className="sec-list">
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+                   <DeviceIcon />
+                   <h6>Chrome on Windows</h6>
+                 </div>
+
+                 <p className="text-muted">
+                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
+                 </p>
+               </div>
+               <div style={{ display: "flex" }}>
+                
+                 <Button type="link">
+                   <EditIcon />
+                 </Button>
+                 <Button type="link">
+                   <DeleteIcon />
+                 </Button>
+               </div>
+             </div>
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+                   <DeviceIcon />
+                   <h6>Safari on Mac</h6>
+                 </div>
+
+                 <p className="text-muted">
+                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
+                 </p>
+               </div>
+               <div style={{ display: "flex" }}>
+              
+                 <Button type="link">
+                   <EditIcon />
+                 </Button>
+                 <Button type="link">
+                   <DeleteIcon />
+                 </Button>
+               </div>
+             </div>
+           
+           </div>
+         </div>
+
+            )}
+            {activeTab === "4" && (
+              <>
+        
+                {/* ===== */}
+                <div className="sec-card ">
+           <div className="header">
+             <h6>IPs</h6>
+             <Button type="link" primary  onClick={showModal}>
+               <PlusIcon/>
+            Add New
+             </Button>
+           </div>
+           <div className="sec-list">
+           
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+                   <IpsIcon />
+                   <h6>105.196.47.40</h6>
+                 </div>
+
+                 <p className="text-muted">
+                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
+                 </p>
+               </div>
+               <div style={{ display: "flex" }}>
+              
+                 <Button type="link">
+                   <EditIcon />
+                 </Button>
+                 <Button type="link">
+                   <DeleteIcon />
+                 </Button>
+               </div>
+             </div>
+           
+           </div>
+         </div>
+{/* ======== */}
+              
+                {/* Modal for adding new IP */}
+                <Modal
+                  title="Add New IP"
+                  visible={isModalVisible}
+                  onCancel={handleCancel}
+                  footer={[
+                    <Button key="discard" onClick={handleCancel} className="ant-btn-muted ">
+                      Discard
+                    </Button>,
+                    <Button key="add" type="primary" onClick={handleAddIP}>
+                      Add
+                    </Button>,
+                  ]}
+                >
+                  <Form form={form} layout="vertical" name="add_ip_form" className="form-bg">
+                    <Form.Item
+                      name="ipAddress"
+                      label="IP Address"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please enter an IP address!",
+                        },
+                        {
+                          pattern: new RegExp(
+                            /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+                          ),
+                          message: "Please enter a valid IP address!",
+                        },
+                      ]}
+                    >
+                      <Input placeholder="Enter new IP" />
+                    </Form.Item>
+                  </Form>
+                </Modal>
+              </>
+            )}
+              {activeTab === "5" && (
+              <>
+             
+             <div className="sec-card ">
+           <div className="header">
+             <h6>MFA </h6>
+         
+           </div>
+           <div className="sec-list">
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+                   <LockIcon />
+                   <h6>Google Authenticator</h6>
+                 </div>
+
+                 <p className="text-muted">
+                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
+                 </p>
+               </div>
+               <div style={{ display: "flex" }}>
+                
+              
+                 <Button type="link">
+                   <DeleteIcon />
+                 </Button>
+               </div>
+             </div>
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+                   <SmsIcon />
+                   <h6>SMS</h6>
+                 </div>
+
+                 <p className="text-muted">
+                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
+                 </p>
+               </div>
+               <div style={{ display: "flex" }}>
+              
+                
+                 <Button type="link">
+                   <DeleteIcon />
+                 </Button>
+               </div>
+             </div>
+         
+             <div className="item">
+               <div className="text-center">
+                 <div style={{ display: "flex" }}>
+                   <UnlockIcon />
+                   <h6 className="text-muted ml-3" >No MFA is created</h6>
+                 </div>
+     
+               </div>
+               <div style={{ display: "flex" }}>
+              
+                
+                 <Button type="link">
+                   <PlusIcon />
+                 </Button>
+               </div>
+             </div>
+
+
+                 {/* First MFA Option */}
+         <div onClick={showModal} className="border-div">
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <div style={{ marginRight: "10px" }}>
+                  <LockIcon />
+                </div>
+                <div>
+                  <h6>Authenticator App</h6>
+                  <p>Use an authenticator app to get a code.</p>
+                </div>
+              </div>
+              <div className="rec-padge">Recommended</div>
+            </div>
+
+            {/* First Modal */}
+            <Modal
+              title="Set up Authenticator App"
+              visible={isModalVisible}
+             
+              onCancel={handleCancel}
+              footer={null}
+              width={800}
             >
-              <p className="text-dark">
+              <div
+                style={{
+                  border: "1px solid #99B1C3",
+                  borderRadius: "6px",
+                  padding: "16px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Row gutter={[24, 0]} justify="space-between">
+                  <Col xs={{ span: 24 }} lg={{ span: 8 }} md={{ span: 24 }}>
+                    <div className="qr-container text-center">
+                      <img src={qr} alt="QR code" />
+                      <h6>Scan this QR from your authenticator app</h6>
+                    </div>
+                  </Col>
+                  <Col xs={{ span: 24 }} lg={{ span: 16 }} md={{ span: 24 }}>
+                    <h6>How to use :</h6>
+                    <ul className="how-to">
+                      <li>
+                        Install an authenticator app on your smartphone, such
+                        as:
+                        <div className="authen-btn">
+                          <Link className="apps-link">
+                            <GoogleAuthIcon />
+                            <h6>
+                              Google
+                              <br />
+                              Authenticator
+                            </h6>
+                          </Link>
+                          <Link className="apps-link">
+                            <MicrosoftAuthIcon />
+                            <h6>
+                              Microsoft
+                              <br />
+                              Authenticator
+                            </h6>
+                          </Link>
+                          <Link className="apps-link">
+                            <h6>
+                              Any other
+                              <br />
+                              Authenticator
+                            </h6>
+                          </Link>
+                        </div>
+                      </li>
+                      <li>
+                        Scan the QR code inside the authenticator app which you
+                        installed on your phone.
+                      </li>
+                      <li>You will get a code in the authenticator app.</li>
+                      <li>Enter the code in your account here to verify it.</li>
+                    </ul>
+                  </Col>
+                </Row>
+              </div>
+              {/* Form to enter 6-digit code */}{" "}
+              <div
+                style={{
+                  border: "1px solid #99B1C3",
+                  borderRadius: "6px",
+                  padding: "16px",
+                }}
+              >
                 {" "}
-                Hi, I’m Alec Thompson, Decisions: If you can’t decide, the
-                answer is no. If two equally difficult paths, choose the one
-                more painful in the short term (pain avoidance is creating an
-                illusion of equality).{" "}
-              </p>
-              <hr className="my-25" />
-              <Descriptions title="Oliver Liam">
-                <Descriptions.Item label="Full Name" span={3}>
-                  Sarah Emily Jacob
-                </Descriptions.Item>
-                <Descriptions.Item label="Mobile" span={3}>
-                  (44) 123 1234 123
-                </Descriptions.Item>
-                <Descriptions.Item label="Email" span={3}>
-                  sarahjacob@mail.com
-                </Descriptions.Item>
-                <Descriptions.Item label="Location" span={3}>
-                  USA
-                </Descriptions.Item>
-                <Descriptions.Item label="Social" span={3}>
-                  <a href="#pablo" className="mx-5 px-5">
-                    {<TwitterOutlined />}
-                  </a>
-                  <a href="#pablo" className="mx-5 px-5">
-                    {<FacebookOutlined style={{ color: "#344e86" }} />}
-                  </a>
-                  <a href="#pablo" className="mx-5 px-5">
-                    {<InstagramOutlined style={{ color: "#e1306c" }} />}
-                  </a>
-                </Descriptions.Item>
-              </Descriptions>
-            </Card>
-          </Col>
-          <Col span={24} md={8} className="mb-24">
-            <Card
-              bordered={false}
-              title={<h6 className="font-semibold m-0">Conversations</h6>}
-              className="header-solid h-full"
-              bodyStyle={{ paddingTop: 0, paddingBottom: 16 }}
-            >
-              <List
-                itemLayout="horizontal"
-                dataSource={data}
-                split={false}
-                className="conversations-list"
-                renderItem={(item) => (
-                  <List.Item actions={[<Button type="link">REPLY</Button>]}>
-                    <List.Item.Meta
-                      avatar={
-                        <Avatar shape="square" size={48} src={item.avatar} />
-                      }
-                      title={item.title}
-                      description={item.description}
-                    />
-                  </List.Item>
-                )}
-              />
-            </Card>
-          </Col>
-        </Row>
-      )}
-      {activeTab === "2" && <div>hello2</div>}
-      {activeTab === "3" && <div>hello3</div>}
+                <Row gutter={[24, 0]} justify="space-between">
+                  {" "}
+                  <Col xs={{ span: 24 }}>
+                    {" "}
+                    <div>
+                      {" "}
+                      <Form
+                    
+                        layout="vertical"
+                        className="row-col"
+                      >
+                        {" "}
+                        <Form.Item
+                          label="Enter the 6-digit code you see in the app"
+                          name="code"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Enter the 6-digit code from the app!",
+                            },
+                          ]}
+                        >
+                          {" "}
+                          <Input placeholder="6-digit code" />{" "}
+                        </Form.Item>{" "}
+                        <div style={{ display: "flex", justifyContent: "end" }}>
+                          {" "}
+                          <Form.Item>
+                            {" "}
+                            <Button
+                              type="default"
+                              onClick={handleCancel}  
+                              style={{ marginRight: 10 }}
+                            >
+                              {" "}
+                              cancel{" "}
+                            </Button>{" "}
+                          </Form.Item>{" "}
+                          <Form.Item>
+                            {" "}
+                            <Button
+                              type="primary"
+                              htmlType="submit"
+                              style={{ width: "100%" }}
+                            >
+                              {" "}
+                              Verify{" "}
+                            </Button>{" "}
+                          </Form.Item>{" "}
+                        </div>{" "}
+                      </Form>{" "}
+                    </div>{" "}
+                  </Col>{" "}
+                </Row>{" "}
+              </div>
+            </Modal>
+
+
+            
+              
+           </div>
+         </div>
+
+            <List>
+    {/* Your connections content here */}
+            </List>
+         
+              </>
+            )}
+          </Card>
+        </Col>
+      </Row>
     </>
   );
 }
