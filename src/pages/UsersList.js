@@ -32,13 +32,6 @@ function InputWithDropdown() {
     console.log(`Selected Option: ${selectedOption}`);
   };
 
-const SearchInput = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleSearch = () => {
-    alert(`Searching for: ${searchTerm}`);
-  };
-
   return (
     <div className="drop-input">
       <Space direction="horzintal" style={{ width: '100%' }} className="space ">
@@ -60,7 +53,7 @@ const SearchInput = () => {
         <Button type="primary" onClick={handleButtonClick} 
          icon={<AddUserIcon />}
         >
-          Create User
+          Create
         </Button>
       </Space>
     </div>
