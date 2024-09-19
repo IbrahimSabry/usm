@@ -1,0 +1,21 @@
+.policy-btn {
+    border: 1px solid #b0c4d5;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #7b8da0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    min-width: 200px;
+  }
+  
+  .policy-btn.active {
+    border: 1px solid #003a70;
+    color: #003a70;
+
+  }
+  
+  .policy-btn:hover {
+    border-color: #003a70;
+  }

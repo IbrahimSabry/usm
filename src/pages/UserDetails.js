@@ -34,6 +34,8 @@ import { ReactComponent as PassIcon } from "../assets/icons/password.svg";
 import { ReactComponent as DotsIcon } from "../assets/icons/dots.svg";
 import { ReactComponent as TrashIcon } from "../assets/icons/trash.svg";
 import { ReactComponent as PasskeyIcon } from "../assets/icons/passuser.svg";
+import { ReactComponent as AttachyIcon } from "../assets/icons/attach.svg";
+import { ReactComponent as RedoIcon } from "../assets/icons/redo.svg";
 import {
   FacebookOutlined,
   TwitterOutlined,
@@ -41,7 +43,9 @@ import {
   VerticalAlignTopOutlined,
 } from "@ant-design/icons";
 import "./Profile.css";
+import PolicySelector from "./PolicySelector"; 
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 
 
 import BgProfile from "../assets/images/profile-bg.jpg";
@@ -123,7 +127,8 @@ function Profile() {
   };
   const overlay = (
     <Card style={{ width: 300 ,padding:10}}>
-      <h4>Erase Your data</h4>
+      <div className="mb-3">
+      <h4>Erase User data</h4>
       <p>
         It will erase user email, phone number, TOTP secret, Password history,
         passkeys etc.
@@ -136,6 +141,22 @@ function Profile() {
       >
         Delete
       </Button>
+      </div>
+      <div className="mb-3">
+      <h4>Reinstate user</h4>
+      <p>
+      It will restore user email, phone number, TOTP secret, Password history, passkeys etc.
+      </p>
+      <Button
+        type="primary"
+      
+        icon={<RedoIcon className="svg-white"/>}
+        style={{ marginTop: "10px" ,display:"block",marginLeft:"auto"}}
+      >
+        Reinstate
+      </Button>
+      </div>
+  
     </Card>)
 
   return (
@@ -216,10 +237,11 @@ Ezz Aboelkheir
             title={
               <Tabs defaultActiveKey="1" onChange={handleTabChange}>
                 <TabPane tab="Devices " key="1" />
-                <TabPane tab="Password" key="2" />
-                <TabPane tab="Pass Keys" key="3" />
-                <TabPane tab="IPs" key="4" />
-                <TabPane tab="MFA" key="5" />
+           
+                <TabPane tab="Pass Keys" key="2" />
+                <TabPane tab="IPs" key="3" />
+                <TabPane tab="Security Controls " key="4" />
+        
               </Tabs>
             }
           >
@@ -228,12 +250,53 @@ Ezz Aboelkheir
    <div className="sec-list">
                <div className="header">
                  <h6>Devices</h6>
-
-<Button type="link" >
+                 <Button type="link" >
               
                Log Out from all devices
              </Button>
                </div>
+               <div className="item">
+               <div className="warning">
+                 <div style={{ display: "flex" }}>
+                   <DeviceIcon />
+                   <h6>Device Name <span> (pending - 7 Days left) </span></h6>
+                 </div>
+
+                 <p className="text-muted">
+                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
+                 </p>
+               </div>
+               <div className="dis-flex"> 
+               <Button
+        type="primary"
+        danger
+        icon={<DeleteIcon className="svg-white"/>}
+        style={{paddingRight:6,paddingLeft:6,marginRight:10}}
+      >
+        Deny
+      </Button>
+      <Button
+      type="success"
+        icon={<AproveIcon className="svg-white"/>}
+        style={{paddingRight:6,paddingLeft:6}}
+      >
+        Approve
+      </Button>
+               </div>
+               <div style={{ display: "flex" }}>
+            
+     
+                 <Button type="link">
+                   <LogoutIcon />
+                 </Button>
+                 <Button type="link">
+                   <EditIcon />
+                 </Button>
+                 <Button type="link">
+                   <DeleteIcon />
+                 </Button>
+               </div>
+             </div>
              <div className="item">
                <div className="succsess">
                  <div style={{ display: "flex" }}>
@@ -280,29 +343,7 @@ Ezz Aboelkheir
                  </Button>
                </div>
              </div>
-             <div className="item">
-               <div className="warning">
-                 <div style={{ display: "flex" }}>
-                   <DeviceIcon />
-                   <h6>Device Name <span> (pending - 7 Days left) </span></h6>
-                 </div>
-
-                 <p className="text-muted">
-                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
-                 </p>
-               </div>
-               <div style={{ display: "flex" }}>
-                 <Button type="link">
-                   <LogoutIcon />
-                 </Button>
-                 <Button type="link">
-                   <EditIcon />
-                 </Button>
-                 <Button type="link">
-                   <DeleteIcon />
-                 </Button>
-               </div>
-             </div>
+          
              <div className="item">
                <div className="muted">
                  <div style={{ display: "flex" }}>
@@ -327,109 +368,13 @@ Ezz Aboelkheir
                       
           
             )}
-            {activeTab === "2" && (
-               <div className="sec-card ">
-               <div className="header">
-                 <h6> Password</h6>
-               </div>
-               <div className="sec-list">
-             <div className="item">
-               <div className="">
-                 <div style={{ display: "flex" }}>
-                   <PassIcon />
-                   <h6>* * * *</h6>
-                 </div>
-
-                 <p className="text-muted">
-                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
-                 </p>
-               </div>
-               <div style={{ display: "flex" }}>
-                
-                 <Button type="link " onClick={showModal}>
-                   <EditIcon />
-                 </Button>
-                 <Button type="link">
-                   <DeleteIcon />
-                 </Button>
-               </div>
-             </div>
-             <div className="item">
-               <div className="">
-                 <div style={{ display: "flex" }}>
-                   <PassIcon className="svg-muted" />
-                   <h6 className="text-muted">No Password found</h6>
-                 </div>
-
-                
-               </div>
-               <div style={{ display: "flex" }}>
-              
-                 <Button type="link" onClick={showModal}>
-                   <PlusIcon />
-                 </Button>
-               </div>
-             </div>
-             {/* Modal for adding new IP */}
-             <Modal
-                  title="Change Password"
-                  visible={isModalVisible}
-                  onCancel={handleCancel}
-                  footer={[
-                    <Button key="discard" onClick={handleCancel} className="ant-btn-muted ">
-                      Discard
-                    </Button>,
-                    <Button key="add" type="primary" onClick={handleAddIP}>
-                      Save
-                    </Button>,
-                  ]}
-                >
-                
-               <Form layout="vertical" className="row-col form-bg">
-                 <Form.Item
-                   className="username"
-                   label="New Password"
-                   name="New Password"
-                   rules={[
-                     {
-                       required: true,
-                       message: "Please enter new password!",
-                     },
-                   ]}
-                 >
-                   <Input placeholder="New Password" />
-                 </Form.Item>
-                 <Form.Item
-                   className="username"
-                   label="Confirm Password"
-                   name=" Confirm Password"
-                   rules={[
-                     {
-                       required: true,
-                       message: "Please conform your password!",
-                     },
-                   ]}
-                 >
-                   <Input placeholder="Confirm Password" />
-                 </Form.Item>
-
-           
-               </Form>
-                </Modal>
-           </div>
-
-             </div>
-            )}
-
+         
         
-  {activeTab === "3" && (
+  {activeTab === "2" && (
            <div className="sec-card ">
            <div className="header">
              <h6>Pass Key</h6>
-             <Button type="link" primary>
-               <PlusIcon/>
-            Add New
-             </Button>
+          
            </div>
            <div className="sec-list">
              <div className="item">
@@ -448,9 +393,7 @@ Ezz Aboelkheir
                  <Button type="link">
                    <EditIcon />
                  </Button>
-                 <Button type="link">
-                   <DeleteIcon />
-                 </Button>
+               
                </div>
              </div>
              <div className="item">
@@ -469,33 +412,15 @@ Ezz Aboelkheir
                  <Button type="link">
                    <EditIcon />
                  </Button>
-                 <Button type="link">
-                   <DeleteIcon />
-                 </Button>
-               </div>
-             </div>
-             <div className="item">
-               <div className="">
-                 <div style={{ display: "flex" }}>
-                   <PasskeyIcon className="svg-muted" />
-                   <h6 className="text-muted">No passkey Found</h6>
-                 </div>
-
-             
-               </div>
-               <div style={{ display: "flex" }}>
               
-               
-                 <Button type="link">
-                   <PlusIcon />
-                 </Button>
                </div>
              </div>
+            
            </div>
          </div>
 
             )}
-            {activeTab === "4" && (
+            {activeTab === "3" && (
               <>
         
                 {/* ===== */}
@@ -573,229 +498,148 @@ Ezz Aboelkheir
                 </Modal>
               </>
             )}
-              {activeTab === "5" && (
+              {activeTab === "4" && (
               <>
              
              <div className="sec-card ">
            <div className="header">
-             <h6>MFA </h6>
+             <h6>Security Controls  </h6>
          
            </div>
            <div className="sec-list">
              <div className="item">
                <div className="">
                  <div style={{ display: "flex" }}>
-                   <LockIcon />
-                   <h6>Google Authenticator</h6>
+            
+                   <h6>Unblock user </h6>
                  </div>
 
                  <p className="text-muted">
-                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
-                 </p>
+                 Enable a previously restricted user to regain access to their account or system.                 </p>
                </div>
                <div style={{ display: "flex" }}>
                 
               
-                 <Button type="link">
-                   <DeleteIcon />
-                 </Button>
+               <Switch defaultChecked />
+               </div>
+             </div>
+          
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+            
+                   <h6>Activate/deactivate user<span> (Status :Activated)</span>  </h6>
+                 </div>
+
+                 <p className="text-muted">
+                 Enable or disable a user’s account to manage their system access.                </p>
+               </div>
+               <div style={{ display: "flex" }}>
+                
+              
+               <Switch defaultChecked={false} />
+               </div>
+             </div>
+          
+
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+            
+                   <h6>Global Log out </h6>
+                 </div>
+
+                 <p className="text-muted">
+                 By activating this, the system will clear all the sessions to sign the user out of all their active sessions.                 </p>
+               </div>
+               <div style={{ display: "flex" }}>
+                
+              
+               <Button
+  type="secondary"
+  icon={<LogoutIcon className="svg-white" />} 
+
+>
+  Global Log out
+</Button>
+               </div>
+             </div>
+        
+
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+            
+                   <h6>Link user to policy </h6>
+                 </div>
+
+                 <p className="text-muted">
+                 Assign a user to a security policy to enforce access controls and compliance.
+                                  </p>
+               </div>
+               <div style={{ display: "flex",flexWarp:"Warp ",alignItems:'center'}}>
+                
+              <div className="empty-status"   onClick={showModal}>
+              <AttachyIcon  className="svg-muted mr-2" />
+              Link user to policy
+              </div>
+  
+<Modal
+                  title="Link user to policy"
+                  visible={isModalVisible}
+                  onCancel={handleCancel}
+                  footer={[
+                    <Button key="discard" onClick={handleCancel} className="ant-btn-muted ">
+                      Discard
+                    </Button>,
+                    <Button key="add" type="primary" onClick={handleAddIP}>
+                      Save
+                    </Button>,
+                  ]}
+                >
+                 <div className="form-bg">
+                 <PolicySelector/>
+    </div>
+           
+                </Modal>
                </div>
              </div>
              <div className="item">
                <div className="">
                  <div style={{ display: "flex" }}>
-                   <SmsIcon />
-                   <h6>SMS</h6>
+            
+                   <h6>Link user to policy </h6>
                  </div>
 
                  <p className="text-muted">
-                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
-                 </p>
+                 Assign a user to a security policy to enforce access controls and compliance.
+                                  </p>
                </div>
-               <div style={{ display: "flex" }}>
-              
+               <div style={{ display: "flex",flexWarp:"Warp ",alignItems:'center'}}>
                 
-                 <Button type="link">
+              <div className="with-status">
+              Standard User Policy
+              </div>
+               <Link
+  type="Link"
+  primary
+  onClick={showModal}
+style={{marginRight:10}}
+>
+ 
+<EditIcon  />
+</Link>
+<Link type="link">
                    <DeleteIcon />
-                 </Button>
+                 </Link>
+
                </div>
              </div>
-         
-             <div className="item">
-               <div className="text-center">
-                 <div style={{ display: "flex" }}>
-                   <UnlockIcon />
-                   <h6 className="text-muted ml-3" >No MFA is created</h6>
-                 </div>
-     
-               </div>
-               <div style={{ display: "flex" }}>
-              
-                
-                 <Button type="link">
-                   <PlusIcon />
-                 </Button>
-               </div>
-             </div>
-
-
-                 {/* First MFA Option */}
-         <div onClick={showModal} className="border-div">
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <div style={{ marginRight: "10px" }}>
-                  <LockIcon />
-                </div>
-                <div>
-                  <h6>Authenticator App</h6>
-                  <p>Use an authenticator app to get a code.</p>
-                </div>
-              </div>
-              <div className="rec-padge">Recommended</div>
-            </div>
-
-            {/* First Modal */}
-            <Modal
-              title="Set up Authenticator App"
-              visible={isModalVisible}
-             
-              onCancel={handleCancel}
-              footer={null}
-              width={800}
-            >
-              <div
-                style={{
-                  border: "1px solid #99B1C3",
-                  borderRadius: "6px",
-                  padding: "16px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Row gutter={[24, 0]} justify="space-between">
-                  <Col xs={{ span: 24 }} lg={{ span: 8 }} md={{ span: 24 }}>
-                    <div className="qr-container text-center">
-                      <img src={qr} alt="QR code" />
-                      <h6>Scan this QR from your authenticator app</h6>
-                    </div>
-                  </Col>
-                  <Col xs={{ span: 24 }} lg={{ span: 16 }} md={{ span: 24 }}>
-                    <h6>How to use :</h6>
-                    <ul className="how-to">
-                      <li>
-                        Install an authenticator app on your smartphone, such
-                        as:
-                        <div className="authen-btn">
-                          <Link className="apps-link">
-                            <GoogleAuthIcon />
-                            <h6>
-                              Google
-                              <br />
-                              Authenticator
-                            </h6>
-                          </Link>
-                          <Link className="apps-link">
-                            <MicrosoftAuthIcon />
-                            <h6>
-                              Microsoft
-                              <br />
-                              Authenticator
-                            </h6>
-                          </Link>
-                          <Link className="apps-link">
-                            <h6>
-                              Any other
-                              <br />
-                              Authenticator
-                            </h6>
-                          </Link>
-                        </div>
-                      </li>
-                      <li>
-                        Scan the QR code inside the authenticator app which you
-                        installed on your phone.
-                      </li>
-                      <li>You will get a code in the authenticator app.</li>
-                      <li>Enter the code in your account here to verify it.</li>
-                    </ul>
-                  </Col>
-                </Row>
-              </div>
-              {/* Form to enter 6-digit code */}{" "}
-              <div
-                style={{
-                  border: "1px solid #99B1C3",
-                  borderRadius: "6px",
-                  padding: "16px",
-                }}
-              >
-                {" "}
-                <Row gutter={[24, 0]} justify="space-between">
-                  {" "}
-                  <Col xs={{ span: 24 }}>
-                    {" "}
-                    <div>
-                      {" "}
-                      <Form
-                    
-                        layout="vertical"
-                        className="row-col"
-                      >
-                        {" "}
-                        <Form.Item
-                          label="Enter the 6-digit code you see in the app"
-                          name="code"
-                          rules={[
-                            {
-                              required: true,
-                              message: "Enter the 6-digit code from the app!",
-                            },
-                          ]}
-                        >
-                          {" "}
-                          <Input placeholder="6-digit code" />{" "}
-                        </Form.Item>{" "}
-                        <div style={{ display: "flex", justifyContent: "end" }}>
-                          {" "}
-                          <Form.Item>
-                            {" "}
-                            <Button
-                              type="default"
-                              onClick={handleCancel}  
-                              style={{ marginRight: 10 }}
-                            >
-                              {" "}
-                              cancel{" "}
-                            </Button>{" "}
-                          </Form.Item>{" "}
-                          <Form.Item>
-                            {" "}
-                            <Button
-                              type="primary"
-                              htmlType="submit"
-                              style={{ width: "100%" }}
-                            >
-                              {" "}
-                              Verify{" "}
-                            </Button>{" "}
-                          </Form.Item>{" "}
-                        </div>{" "}
-                      </Form>{" "}
-                    </div>{" "}
-                  </Col>{" "}
-                </Row>{" "}
-              </div>
-            </Modal>
-
-            
               
            </div>
          </div>
 
-            <List>
-    {/* Your connections content here */}
-            </List>
-         
+       
               </>
             )}
           </Card>

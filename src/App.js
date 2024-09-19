@@ -15,6 +15,9 @@ import Tables from "./pages/Tables";
 import Billing from "./pages/Billing";
 import Rtl from "./pages/Rtl";
 import Profile from "./pages/Profile";
+import UserDetails from "./pages/UserDetails";
+import UsersList from "./pages/UsersList";
+import OldProfile from "./pages/OldProfile";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import NewPassword from "./pages/NewPassword";
@@ -39,12 +42,17 @@ function App() {
         <Route path="/mfa-create" exact component={MfaCreate} />
         <Route path="/new-pass" exact component={NewPassword} />
         <Route path="/pass-or-passkey" exact component={passOrpasskey} />
+        <Route path="/old-profile" exact component={OldProfile} />
+        <Route path="/user-details" exact component={UserDetails} />
+        <Route path="/users-list" exact component={UsersList} />
+        
         <Main>
           <Route exact path="/dashboard" component={Home} />
           <Route exact path="/tables" component={Tables} />
           <Route exact path="/billing" component={Billing} />
           <Route exact path="/rtl" component={Rtl} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/user-details" component={UserDetails} />
           <Redirect from="*" to="/dashboard" />
         </Main>
       </Switch>
