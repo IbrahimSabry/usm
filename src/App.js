@@ -42,9 +42,6 @@ function App() {
         <Route path="/mfa-create" exact component={MfaCreate} />
         <Route path="/new-pass" exact component={NewPassword} />
         <Route path="/pass-or-passkey" exact component={passOrpasskey} />
-        <Route path="/old-profile" exact component={OldProfile} />
-        <Route path="/user-details" exact component={UserDetails} />
-        <Route path="/users-list" exact component={UsersList} />
         
         <Main>
           <Route exact path="/dashboard" component={Home} />
@@ -53,6 +50,8 @@ function App() {
           <Route exact path="/rtl" component={Rtl} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/user-details" component={UserDetails} />
+          <Route exact path="/old-profile" component={OldProfile} />
+          <Route exact path="/users-list" component={UsersList} />
           <Redirect from="*" to="/dashboard" />
         </Main>
       </Switch>
