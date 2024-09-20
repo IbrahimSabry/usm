@@ -9,16 +9,22 @@ import {
   Select,
   Space,
   Input,
+  Modal,
 } from "antd";
 import { ReactComponent as AddUserIcon } from "../assets/icons/Add User.svg";
+import { ReactComponent as SearchIcon } from "../assets/icons/Search.svg";
 import { NavLink } from "react-router-dom";
 import face from "../assets/images/face-1.jpg";
+import "./UserList.css";
+import FormItemLabel from "antd/lib/form/FormItemLabel";
+
 const { Title } = Typography;
 const { Option } = Select;
 
 function Tables() {
   const [inputValue, setInputValue] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -31,49 +37,83 @@ function Tables() {
   const handleButtonClick = () => {
     console.log(`Input Value: ${inputValue}`);
     console.log(`Selected Option: ${selectedOption}`);
+    setIsModalVisible(false); // Close modal after button click
   };
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleModalCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <>
-      <div className="">
+      <div className="user-list">
         <Row gutter={[24, 0]}>
           <Col xs={24} xl={24}>
             <Card
               bordered={false}
               style={{ height: "100vh" }}
-              title="Users List"
-            >
-              <div className="drop-input">
+              title={
+                <div className="d-flex justify-content-between flex-wrap">
+                  <h4 className="card-title">Users List</h4>
+                 
+
+<Button type="primary" onClick={showModal} icon={<AddUserIcon />}>
+                Create User
+              </Button>
+              {/* Modal Component */}
+              <Modal
+                title="Create User"
+                visible={isModalVisible}
+                onOk={handleButtonClick}
+                onCancel={handleModalCancel}
+                okText="Create"
+                cancelText="Cancel"
+                className="create-user-modal"
+              >
                 <Space
-                  direction="horzintal"
+                  direction="vertical"
                   style={{ width: "100%" }}
-                  className="space "
+                  className="space form-bg"
                 >
+              <label>
+                Mail ID
+              </label>
                   <Input
                     value={inputValue}
                     onChange={handleInputChange}
-                    placeholder="Enter text"
+                    placeholder="Enter mail ID without @company.com"
                   />
+                  <label>
+                Mail ID
+              </label>
                   <Select
                     style={{ width: "100%" }}
-                    placeholder="Select an option"
+                    placeholder="Select your company Domain"
                     onChange={handleSelectChange}
                   >
                     <Option value="option1">Option 1</Option>
                     <Option value="option2">Option 2</Option>
                     <Option value="option3">Option 3</Option>
                   </Select>
-
-                  <Button
-                    type="primary"
-                    onClick={handleButtonClick}
-                    icon={<AddUserIcon />}
-                  >
-                    Create
-                  </Button>
                 </Space>
+              </Modal>
+                </div>
+              }
+            >
+              <div className="dis-flex justify-content-end"> 
+              <Input
+                    className="ul-search ml-auto"
+                    placeholder="Find User..."
+                    prefix={<SearchIcon />}
+                  />
               </div>
-              <Row justify="start" align="middle" className=" users-list p-4">
-                <Col span={24} md={12} lg={6}>
+            
+              <Row justify="start" align="middle" className="users-list p-4">
+                <Col span={24} md={12} lg={8}>
                   <Card className="m-1">
                     <NavLink to="/user-details">
                       <Avatar.Group>
@@ -86,7 +126,7 @@ function Tables() {
                     </NavLink>
                   </Card>
                 </Col>
-                <Col span={24} md={12} lg={6}>
+                <Col span={24} md={12} lg={8}>
                   <Card className="m-1">
                     <NavLink to="/user-details">
                       <Avatar.Group>

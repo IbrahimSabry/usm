@@ -260,24 +260,15 @@ function Sidenav({ color }) {
             <span className="label">Users List</span>
           </NavLink>
         </Menu.Item>
+        <Menu.Item key="9">
+          <NavLink to="/org-sec">
+            <span className="icon">{signin}</span>
+            <span className="label"> Org Security Controls </span>
+          </NavLink>
+        </Menu.Item>
+        
       </Menu>
-      <div className="aside-footer">
-        <div
-          className="footer-box"
-          style={{
-            background: color,
-          }}
-        >
-          <span className="icon" style={{ color }}>
-            {dashboard}
-          </span>
-          <h6>Need Help?</h6>
-          <p>Please check our docs</p>
-          <Button type="primary" className="ant-btn-sm ant-btn-block">
-            DOCUMENTATION
-          </Button>
-        </div>
-      </div>
+     
     </>
   );
 }

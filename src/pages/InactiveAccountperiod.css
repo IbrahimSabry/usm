@@ -1,0 +1,45 @@
+/* Custom styles for the dropdown */
+.custom-dropdown-button {
+    background-color: #183a64; /* Dark blue background */
+    color: #ffffff; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    width: 120px; /* Button width */
+    text-align: left; /* Align text to the left */
+    font-weight: bold; /* Bold text */
+  }
+  
+  .custom-dropdown-button:hover,
+  .custom-dropdown-button:focus {
+    background-color: #1d4d8d; /* Darker blue on hover */
+    color: #ffffff; /* Keep text white */
+  }
+  
+  .custom-dropdown-menu {
+    min-width: 180px; /* Minimum width for the dropdown */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  }
+  
+  .custom-input-item {
+    padding: 8px 16px; /* Padding for input */
+  }
+  
+  .custom-input-item .ant-input {
+    border-radius: 5px; /* Rounded corners for the input */
+    border-color: #bfbfbf; /* Light border color */
+  }
+  
+  .custom-input-item .ant-input::placeholder {
+    color: #bfbfbf; /* Placeholder color */
+  }
+  
+  .custom-dropdown-menu .ant-menu-item {
+    padding: 8px 16px; /* Padding for menu items */
+    color: #183a64; /* Dark blue text */
+    font-weight: 500; /* Semi-bold text */
+  }
+  
+  .custom-dropdown-menu .ant-menu-item:hover {
+    background-color: #f0f5ff; /* Light blue background on hover */
+  }

@@ -17,6 +17,8 @@ import Rtl from "./pages/Rtl";
 import Profile from "./pages/Profile";
 import UserDetails from "./pages/UserDetails";
 import UsersList from "./pages/UsersList";
+import InactiveAccountperiod from "./pages/InactiveAccountperiod";
+import OrgSecCont from "./pages/ OrgSecControls ";
 import OldProfile from "./pages/OldProfile";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
@@ -52,6 +54,7 @@ function App() {
           <Route exact path="/user-details" component={UserDetails} />
           <Route exact path="/old-profile" component={OldProfile} />
           <Route exact path="/users-list" component={UsersList} />
+          <Route exact path="/org-sec" component={OrgSecCont} />
           <Redirect from="*" to="/dashboard" />
         </Main>
       </Switch>
