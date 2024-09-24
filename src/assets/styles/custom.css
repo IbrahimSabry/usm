@@ -1,7 +1,11 @@
 body {
     color: #013C68;
 }
-
+.ant-btn:hover, .ant-btn:focus {
+    color: #013C68;
+    border-color: #012846;
+    background: #fff;
+}
 .ant-btn-muted {
     color: #99B1C3;
     border: #99B1C3 solid 1px;
@@ -501,6 +505,10 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .header-
 
 .ant-btn {
     font-size: 15px;
+    padding: 0 15px;
+}
+.sec-list .item button:not(.ant-btn-link).ant-btn{
+    padding: 0 15px;  
 }
 
 .dis-flex {
@@ -512,7 +520,9 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .header-
     color: #fff;
     border: #52C41A solid 1px;
 }
-
+.bold{
+    font-weight: bold;
+}
 .ant-btn-success:hover,
 .ant-btn-success:hover,
 .ant-btn-success:focus {
@@ -706,7 +716,7 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .header-
     color: #ffffff; /* White text */
     border: none; /* Remove border */
     border-radius: 5px; /* Rounded corners */
-    width: 120px; /* Button width */
+    min-width: 142px; /* Button width */
     text-align: left; /* Align text to the left */
     font-weight: bold; /* Bold text */
   }
@@ -750,3 +760,88 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .header-
 color: #013C68;
 padding: 10px ;
 }
+.custom-dropdown > span {
+    display: inline-block;
+    padding-left: 7px;
+}
+.org-card{
+    min-height: 100vh;
+}
+label{
+    color: #99B1C3;
+}
+.ant-modal-footer .ant-btn:not(.ant-btn-primary ){
+    color: #013C68;
+}
+.pass-status{
+    background-color: #fafdff;
+    border: solid 1px #99B1C3;
+    border-radius: 5px;
+    width: 100%;
+}
+.pass-examp{
+    border: #99B1C3 dashed 1px;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+}
+.pass-examp h3{
+    margin-bottom: 0;
+}
+.no-policy{
+    display: flex;
+    align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.no-policy svg{
+    width: 40px !important;
+    height: auto;
+}
+.with-policy {
+  
+    margin: 10px;
+}
+.with-policy .item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;}
+
+    .pass-status .pss{
+        margin: 10px;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+    .pass-status .pss .dash-holder{
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+    .pass-status .pss .dash{
+        height: 10px;
+        background-color: #99B1C3;
+        width: 30%;
+        margin-right: 3%;
+        border-radius: 10px;
+        margin-top: 5px;
+    }
+    .dash-holder.danger .dash:first-child {
+ background-color:#FE5F57;
+    }
+    .dash-holder.warning .dash:nth-child(-n+2)  {
+        background-color:#FEBC2E;
+           }
+           .dash-holder.succsess .dash {
+            background-color:#52C41A;
+               }

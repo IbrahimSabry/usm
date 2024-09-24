@@ -19,6 +19,7 @@ import UserDetails from "./pages/UserDetails";
 import UsersList from "./pages/UsersList";
 import InactiveAccountperiod from "./pages/InactiveAccountperiod";
 import OrgSecCont from "./pages/ OrgSecControls ";
+import DurationSelector from "./pages/DurationSelector";
 import OldProfile from "./pages/OldProfile";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
