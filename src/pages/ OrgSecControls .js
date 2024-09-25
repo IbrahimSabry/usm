@@ -20,10 +20,13 @@ import { ReactComponent as SearchIcon } from "../assets/icons/Search.svg";
 import { ReactComponent as TrashIcon } from "../assets/icons/trash.svg";
 import { ReactComponent as NoDataIcon } from "../assets/icons/no sata.svg";
 import { ReactComponent as AproveIcon } from "../assets/icons/aprove.svg";
+import { ReactComponent as EditIcon } from "../assets/icons/Edit Square.svg";
+import { ReactComponent as DeleteIcon } from "../assets/icons/Close Square.svg";
 import { NavLink } from "react-router-dom";
 import face from "../assets/images/face-1.jpg";
 import "./ OrgSecControls .css";
 import DurationSelector from "./DurationSelector"; 
+import Counter from "./Counter"; 
 
 import InactiveAccountperiod from "./InactiveAccountperiod";
 const { Title } = Typography;
@@ -512,13 +515,19 @@ function OrgSec() {
                       </div>
                       <Row gutter={[24, 0]}>
                       <Col sm={24} md={8}>
-                      <p className="bold">
-                      Password Policy Status
-                      </p>
-                      <p>
+                      <div className="sec-card ">
+   <div className="sec-list">
+               <div className="header">
+                <h6>
+                Password Policy Status
+                </h6>
+            
+                </div>
+                <p>
                       Example of an accepted password based on the given password policy:
                       </p>
-                      <div className="pass-status">
+                </div>
+                <div className="pass-status">
                       <div className="pass-examp">
                         <h3>
                           1234
@@ -579,9 +588,192 @@ to make password stronger
                           </div>
 
                       </div>
+                </div>
+                    
+                     
+                 
                         </Col>
                         <Col sm={24} md={16}>
-                        dd
+                        <div className="sec-card ">
+   <div className="sec-list">
+               <div className="header">
+                 <h6>Password Policy Options</h6>
+           
+               </div>
+               <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+             
+                   <h6>Minimum Length</h6>
+                 </div>
+
+                 <p className="text-muted">
+                 This option lets you configure the minimum number of characters required for a password.
+                 </p>
+               </div>
+              
+               <div style={{ display: "flex" }}>
+            <Counter/>
+     
+               
+               </div>
+             </div>
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+             
+                   <h6>Minimum  Capital Letters length  </h6>
+                 </div>
+
+                 <p className="text-muted">
+                 This option specifies the need for at least one uppercase letter in the password.                 </p>
+               </div>
+              
+               <div style={{ display: "flex" }}>
+            <Counter/>
+     
+               
+               </div>
+             </div>
+
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+             
+                   <h6>Minimum  lower Letters length  </h6>
+                 </div>
+
+                 <p className="text-muted">
+                 This option specifies the need for at least one uppercase letter in the password.
+                 </p>
+               </div>
+              
+               <div style={{ display: "flex" }}>
+            <Counter/>
+     
+               
+               </div>
+             </div>
+
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+             
+                   <h6>Minimum Special Characters</h6>
+                 </div>
+
+                 <p className="text-muted">
+                 This option specifies the need for at least one Characters  in the password (e.g., !, @, #, $, %).
+                 </p>
+               </div>
+              
+               <div style={{ display: "flex" }}>
+            <Counter/>
+     
+               
+               </div>
+             </div>
+
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+             
+                   <h6>Minimum Numbers</h6>
+                 </div>
+
+                 <p className="text-muted">
+                 This option specifies the need for at least one digit  in the password (0-9).
+                 </p>
+               </div>
+              
+               <div style={{ display: "flex" }}>
+            <Counter/>
+     
+               
+               </div>
+             </div>
+
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+             
+                   <h6>Password history limit</h6>
+                 </div>
+
+                 <p className="text-muted">
+                 This option prevents users from reusing their previous passwords.
+                 </p>
+               </div>
+              
+               <div style={{ display: "flex" }}>
+            <Counter/>
+     
+               
+               </div>
+             </div>
+
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+             
+                   <h6>Password Expiration period</h6>
+                 </div>
+
+                 <p className="text-muted">
+                 This option defines the duration after which a password must be changed.
+                 </p>
+               </div>
+              
+               <div style={{ display: "flex" }}>
+               <Switch defaultChecked={false} />
+     
+               
+               </div>
+             </div>
+
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+             
+                   <h6>Password Expiration period</h6>
+                 </div>
+
+                 <p className="text-muted">
+                 This option defines the duration after which a password must be changed.
+                 </p>
+               </div>
+              
+               <div style={{ display: "flex" }}>
+               <InactiveAccountperiod />
+     
+               
+               </div>
+             </div>
+
+             <div className="item">
+               <div className="">
+                 <div style={{ display: "flex" }}>
+             
+                   <h6>Disable Compromised Password</h6>
+                 </div>
+
+                 <p className="text-muted">
+                 This option  Prevents the use of passwords that have been exposed in data breaches.
+                 </p>
+               </div>
+              
+               <div style={{ display: "flex" }}>
+               <Switch defaultChecked={false} />
+     
+               
+               </div>
+             </div>
+
+        
+           </div>
+
+                      </div>
+                      
                         </Col>
                       </Row>
 
@@ -590,9 +782,66 @@ to make password stronger
                   </div>
                 )}
                 {activeTab === "3" && (
-                  <div>
+                  <div style={{width:"100%"}}>
                     {/* Add content for IPs Tab here */}
-                    IPs Tab Content
+             <div className="sec-card">
+             <div className="header flex-grow">
+              <h6>
+                CIDER
+              </h6>
+              <Input
+                          className="ul-search mb-1 ml-auto mr-2"
+                          placeholder="Find ..."
+                          prefix={<SearchIcon /> }
+                        />
+                        <Button type="primary" onClick={showModal} >
+                Create CIDR
+              </Button>
+              {/* Modal Component */}
+              <Modal
+                title="Create User"
+                visible={isModalVisible}
+                onOk={handleButtonClick}
+                onCancel={handleModalCancel}
+                okText="Create"
+                cancelText="Cancel"
+                className="create-user-modal"
+              >
+                <Space
+                  direction="vertical"
+                  style={{ width: "100%" }}
+                  className="space form-bg"
+                >
+              <label>
+              Add new CIDR
+              </label>
+                  <Input
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    placeholder="1.0.0.0"
+                  />
+          
+                </Space>
+              </Modal>
+              </div>
+              <Row justify="start" align="middle" className="users-list p-4">
+              <Col span={24} md={12} lg={8}>
+              <div className="cidr-card">
+<h6>
+  0.0.0.0
+</h6>
+<div className="btns">
+                        <Button type="link">
+                          <EditIcon />
+                        </Button>
+                        <Button type="link">
+                          <DeleteIcon />
+                        </Button>
+                      </div>
+              </div>
+              </Col>
+              </Row>
+             </div>
                   </div>
                 )}
             
