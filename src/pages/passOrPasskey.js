@@ -212,15 +212,12 @@ export default class SignIn extends Component {
                       htmlType="submit"
                       style={{ width: "100%" }}
                     >
-                     Send
+                     Save
                     </Button>
                   </Form.Item>
               
-{/* passkey */}
-<a className="ant-btn ant-btn-default" href="#"style={{ width: "100%" }}>
-<LogoutIcon/>
-               Logout
-                  </a>
+
+
                   {/* passkey */}
 
                   <Link
@@ -231,7 +228,10 @@ export default class SignIn extends Component {
                     <PassKeyIcon />
                   Add  passkey
                   </Link>
-             
+                  <a className="ant-btn ant-btn-default mt-4" href="#"style={{ width: "100%" }}>
+<LogoutIcon/>
+               Logout
+                  </a>
                 </Form>
               </div>
             </Col>

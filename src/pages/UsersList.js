@@ -13,6 +13,7 @@ import {
 } from "antd";
 import { ReactComponent as AddUserIcon } from "../assets/icons/Add User.svg";
 import { ReactComponent as SearchIcon } from "../assets/icons/Search.svg";
+import { ReactComponent as NodataIcon } from "../assets/icons/no data.svg";
 import { NavLink } from "react-router-dom";
 import face from "../assets/images/face-1.jpg";
 import "./UserList.css";
@@ -21,7 +22,7 @@ import FormItemLabel from "antd/lib/form/FormItemLabel";
 const { Title } = Typography;
 const { Option } = Select;
 
-function Tables() {
+function UserList() {
   const [inputValue, setInputValue] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -140,6 +141,14 @@ function Tables() {
                   </Card>
                 </Col>
               </Row>
+                   {/* no data */}
+   <div className="no-data">
+      <NodataIcon/>
+      <h6 className="text-muted">
+        No Data Found
+      </h6>
+      </div>
+
             </Card>
           </Col>
         </Row>
@@ -148,4 +157,4 @@ function Tables() {
   );
 }
 
-export default Tables;
+export default UserList;

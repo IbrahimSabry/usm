@@ -188,7 +188,7 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="2">
-          <NavLink to="/tables">
+          <NavLink to="/users-list">
             <span
               className="icon"
               style={{
@@ -197,11 +197,12 @@ function Sidenav({ color }) {
             >
               {tables}
             </span>
-            <span className="label">Tables</span>
+            <span className="label">Users List</span>
           </NavLink>
         </Menu.Item>
+        
         <Menu.Item key="3">
-          <NavLink to="/billing">
+          <NavLink to="/org-sec">
             <span
               className="icon"
               style={{
@@ -210,11 +211,11 @@ function Sidenav({ color }) {
             >
               {billing}
             </span>
-            <span className="label">Billing</span>
+            <span className="label">Org  Controls</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="4">
-          <NavLink to="/rtl">
+          <NavLink to="/sec-pol">
             <span
               className="icon"
               style={{
@@ -223,7 +224,7 @@ function Sidenav({ color }) {
             >
               {rtl}
             </span>
-            <span className="label">RTL</span>
+            <span className="label">Sec Policy</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item className="menu-item-header" key="5">
@@ -264,6 +265,12 @@ function Sidenav({ color }) {
           <NavLink to="/org-sec">
             <span className="icon">{signin}</span>
             <span className="label"> Org Security Controls </span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="10">
+          <NavLink to="/sec-pol">
+            <span className="icon">{signin}</span>
+            <span className="label"> Security Polices </span>
           </NavLink>
         </Menu.Item>
         

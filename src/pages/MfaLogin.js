@@ -179,9 +179,7 @@ export default class SignIn extends Component {
                     <Input placeholder="OTP" />
                   </Form.Item>
 
-                  <Form.Item>
-        <Checkbox>Remember this Device</Checkbox>
-      </Form.Item>
+       
                   <Form.Item>
                     
                     <Button

@@ -25,7 +25,7 @@ import { ReactComponent as DeleteIcon } from "../assets/icons/Close Square.svg";
 import { ReactComponent as AproveIcon } from "../assets/icons/aprove.svg";
 import { ReactComponent as PlusIcon } from "../assets/icons/Plus.svg";
 import { ReactComponent as IpsIcon } from "../assets/icons/ip.svg";
-import { ReactComponent as LockIcon } from "../assets/icons/Lock.svg";
+import { ReactComponent as UnblockIcon } from "../assets/icons/unblock.svg";
 import { ReactComponent as SmsIcon } from "../assets/icons/sms.svg";
 import { ReactComponent as UnlockIcon } from "../assets/icons/Unlock.svg"
 import { ReactComponent as MicrosoftAuthIcon } from "../assets/icons/microsoft-authenticator.svg";
@@ -266,7 +266,8 @@ Ezz Aboelkheir
                    Added on 23/ 24/ 2023 | Last used on 07/05/2024
                  </p>
                </div>
-               <div className="dis-flex"> 
+           
+               <div style={{ display: "flex" }}>
                <Button
         type="primary"
         danger
@@ -282,19 +283,12 @@ Ezz Aboelkheir
       >
         Approve
       </Button>
-               </div>
-               <div style={{ display: "flex" }}>
-            
      
-                 <Button type="link">
+                 <Button type="link" className="ml-2">
                    <LogoutIcon />
                  </Button>
-                 <Button type="link">
-                   <EditIcon />
-                 </Button>
-                 <Button type="link">
-                   <DeleteIcon />
-                 </Button>
+                
+               
                </div>
              </div>
              <div className="item">
@@ -309,14 +303,17 @@ Ezz Aboelkheir
                  </p>
                </div>
                <div style={{ display: "flex" }}>
-                 <Button type="link">
+               
+                 <Button
+        type="primary"
+        danger
+        icon={<DeleteIcon className="svg-white"/>}
+        style={{paddingRight:6,paddingLeft:6,marginRight:10}}
+      >
+        Deny
+      </Button>
+      <Button type="link" className="">
                    <LogoutIcon />
-                 </Button>
-                 <Button type="link">
-                   <EditIcon />
-                 </Button>
-                 <Button type="link">
-                   <DeleteIcon />
                  </Button>
                </div>
              </div>
@@ -332,36 +329,21 @@ Ezz Aboelkheir
                  </p>
                </div>
                <div style={{ display: "flex" }}>
-                 <Button type="link">
+               <Button
+      type="success"
+        icon={<AproveIcon className="svg-white"/>}
+        style={{paddingRight:6,paddingLeft:6}}
+      >
+        Approve
+      </Button>
+                 <Button type="link" className="ml-2">
                    <LogoutIcon />
                  </Button>
-                 <Button type="link">
-                   <EditIcon />
-                 </Button>
-                 <Button type="link">
-                   <DeleteIcon />
-                 </Button>
+           
                </div>
              </div>
           
-             <div className="item">
-               <div className="muted">
-                 <div style={{ display: "flex" }}>
-                   <DeviceIcon />
-                   <h6>Device Name (inactive) </h6>
-                 </div>
-
-                 <p className="text-muted">
-                   Added on 23/ 24/ 2023 | Last used on 07/05/2024
-                 </p>
-               </div>
-               <div style={{ display: "flex" }}>
-             
-                 <Button type="link">
-                   <AproveIcon />
-                 </Button>
-               </div>
-             </div>
+           
            </div>
 
                       </div>
@@ -520,7 +502,14 @@ Ezz Aboelkheir
                <div style={{ display: "flex" }}>
                 
               
-               <Switch defaultChecked />
+                         
+               <Button
+  type="secondary"
+  icon={<UnblockIcon className="svg-white" />} 
+
+>
+ Unblock
+</Button>
                </div>
              </div>
           

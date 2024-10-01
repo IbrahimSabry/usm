@@ -261,19 +261,14 @@ function Profile() {
                       <Button type="link">
                         <LogoutIcon />
                       </Button>
-                      <Button type="link">
-                        <EditIcon />
-                      </Button>
-                      <Button type="link">
-                        <DeleteIcon />
-                      </Button>
+                 
                     </div>
                   </div>
                   <div className="item">
                     <div className="danger">
                       <div style={{ display: "flex" }}>
                         <DeviceIcon />
-                        <h6>Device Name (Rejected )</h6>
+                        <h6>Device Name (Denied )</h6>
                       </div>
 
                       <p className="text-muted">
@@ -284,12 +279,7 @@ function Profile() {
                       <Button type="link">
                         <LogoutIcon />
                       </Button>
-                      <Button type="link">
-                        <EditIcon />
-                      </Button>
-                      <Button type="link">
-                        <DeleteIcon />
-                      </Button>
+                    
                     </div>
                   </div>
                   <div className="item">
@@ -309,31 +299,10 @@ function Profile() {
                       <Button type="link">
                         <LogoutIcon />
                       </Button>
-                      <Button type="link">
-                        <EditIcon />
-                      </Button>
-                      <Button type="link">
-                        <DeleteIcon />
-                      </Button>
+                    
                     </div>
                   </div>
-                  <div className="item">
-                    <div className="muted">
-                      <div style={{ display: "flex" }}>
-                        <DeviceIcon />
-                        <h6>Device Name (inactive) </h6>
-                      </div>
-
-                      <p className="text-muted">
-                        Added on 23/ 24/ 2023 | Last used on 07/05/2024
-                      </p>
-                    </div>
-                    <div style={{ display: "flex" }}>
-                      <Button type="link">
-                        <AproveIcon />
-                      </Button>
-                    </div>
-                  </div>
+                 
                 </div>
               </div>
             )}

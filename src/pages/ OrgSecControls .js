@@ -20,7 +20,8 @@ import { ReactComponent as SearchIcon } from "../assets/icons/Search.svg";
 import { ReactComponent as TrashIcon } from "../assets/icons/trash.svg";
 import { ReactComponent as NoDataIcon } from "../assets/icons/no sata.svg";
 import { ReactComponent as AproveIcon } from "../assets/icons/aprove.svg";
-import { ReactComponent as EditIcon } from "../assets/icons/Edit Square.svg";
+import { ReactComponent as LinkIcon } from "../assets/icons/link User.svg";
+import { ReactComponent as UnlinkIcon } from "../assets/icons/unlink User.svg";
 import { ReactComponent as DeleteIcon } from "../assets/icons/Close Square.svg";
 import { NavLink } from "react-router-dom";
 import face from "../assets/images/face-1.jpg";
@@ -99,6 +100,7 @@ function OrgSec() {
                     <TabPane tab=" Security Controls " key="1" />
                     <TabPane tab="Password Policy " key="2" />
                     <TabPane tab="CIDR" key="3" />
+                    <TabPane tab="Linked Users" key="4" />
                
                   </Tabs>
                 </div>
@@ -136,7 +138,7 @@ function OrgSec() {
                         <div className="item">
                           <div className="">
                             <div style={{ display: "flex" }}>
-                              <h6>Trusted IP</h6>
+                              <h6>Trusted IP required</h6>
                             </div>
 
                             <p className="text-muted">
@@ -716,7 +718,7 @@ to make password stronger
                <div className="">
                  <div style={{ display: "flex" }}>
              
-                   <h6>Password Expiration period</h6>
+                   <h6>Password history limit</h6>
                  </div>
 
                  <p className="text-muted">
@@ -754,7 +756,7 @@ to make password stronger
                <div className="">
                  <div style={{ display: "flex" }}>
              
-                   <h6>Disable Compromised Password</h6>
+                   <h6>Disable Compromised Password Checking</h6>
                  </div>
 
                  <p className="text-muted">
@@ -831,11 +833,72 @@ to make password stronger
   0.0.0.0
 </h6>
 <div className="btns">
-                        <Button type="link">
-                          <EditIcon />
-                        </Button>
+                     
                         <Button type="link">
                           <DeleteIcon />
+                        </Button>
+                      </div>
+              </div>
+              </Col>
+              </Row>
+             </div>
+                  </div>
+                )}
+                   {activeTab === "4" && (
+                  <div style={{width:"100%"}}>
+                    {/* Add content for IPs Tab here */}
+             <div className="sec-card">
+             <div className="header flex-grow">
+              <h6>
+        Linked User:<span> 111</span>
+              </h6>
+              <Input
+                          className="ul-search mb-1 ml-auto mr-2"
+                          placeholder="Find ..."
+                          prefix={<SearchIcon /> }
+                        />
+                        <Button type="primary" onClick={showModal} >
+                        <LinkIcon/>
+             Link User
+              </Button>
+           
+              {/* Modal Component */}
+              <Modal
+                title="Link User"
+                visible={isModalVisible}
+                onOk={handleButtonClick}
+                onCancel={handleModalCancel}
+                okText="Link"
+                cancelText="Cancel"
+                className="create-user-modal"
+              >
+                <Space
+                  direction="vertical"
+                  style={{ width: "100%" }}
+                  className="space form-bg"
+                >
+              <label>
+          Find User
+              </label>
+                  <Input
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    placeholder="Ahmed ..."
+                  />
+          
+                </Space>
+              </Modal>
+              </div>
+              <Row justify="start" align="middle" className="users-list p-4">
+              <Col span={24} md={12} lg={8}>
+              <div className="cidr-card">
+<h6>
+Ahmed Hasssan
+</h6>
+<div className="btns">
+                     
+                        <Button type="link">
+                          <UnlinkIcon />
                         </Button>
                       </div>
               </div>

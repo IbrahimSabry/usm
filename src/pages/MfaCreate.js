@@ -4,6 +4,7 @@ import { ReactComponent as SmsIcon } from "../assets/icons/sms.svg";
 import { ReactComponent as MicrosoftAuthIcon } from "../assets/icons/microsoft-authenticator.svg";
 import { ReactComponent as LogoutIcon } from "../assets/icons/LogOut.svg";
 import { ReactComponent as GoogleAuthIcon } from "../assets/icons/google-authenticator.svg";
+import { ReactComponent as AuthyIcon } from "../assets/icons/authy.svg";
 
 
 import { Layout, Row, Col, Typography, Modal, Input, Form, Button } from "antd";
@@ -149,9 +150,11 @@ const SignIn = () => {
                               Authenticator
                             </h6>
                           </Link>
+                      
                           <Link className="apps-link">
+                          <AuthyIcon/>
                             <h6>
-                              Any other
+                           Authy
                               <br />
                               Authenticator
                             </h6>
