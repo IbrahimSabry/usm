@@ -10,6 +10,7 @@ import {
   Space,
   Input,
   Modal,
+  List
 } from "antd";
 import { ReactComponent as AddUserIcon } from "../assets/icons/Add User.svg";
 import { ReactComponent as SearchIcon } from "../assets/icons/Search.svg";
@@ -148,6 +149,9 @@ function UserList() {
         No Data Found
       </h6>
       </div>
+  <List>
+
+  </List>
 
             </Card>
           </Col>
