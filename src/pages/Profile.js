@@ -10,7 +10,7 @@ import {
   Avatar,
   Radio,
   Switch,
-  Upload,
+  Select,
   message,
   Form,
   Modal,
@@ -53,6 +53,8 @@ import project1 from "../assets/images/home-decor-1.jpeg";
 import project2 from "../assets/images/home-decor-2.jpeg";
 import project3 from "../assets/images/home-decor-3.jpeg";
 import qr from "../assets/images/qr/Mask Group 1.png";
+
+// import MyDatePicker from "./MyDatePicker";
 
 const { TabPane } = Tabs;
 
@@ -98,7 +100,7 @@ function Profile() {
       });
     }
   };
-
+  const { Option } = Select;
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -235,6 +237,7 @@ function Profile() {
                 <TabPane tab="Pass Keys" key="3" />
                 <TabPane tab="IPs" key="4" />
                 <TabPane tab="MFA" key="5" />
+                <TabPane tab="Delegation" key="6" />
               </Tabs>
             }
           >
@@ -850,6 +853,243 @@ function Profile() {
                   </div>
                 </div>
               </>
+            )}
+              {activeTab === "6" && (
+               <>
+                  <div className="sec-card ">
+                <div className="header">
+                  <h6>Delegated by Me</h6>
+                  <Button type="link" primary onClick={showModal}>
+                    <PlusIcon />
+                    Add New
+                  </Button>
+                      {/* Modal  */}
+                <Modal
+                  title="Delegate Employee"
+                  visible={isModalVisible}
+                  onCancel={handleCancel}
+                  footer={[
+                    <Button
+                      key="discard"
+                      onClick={handleCancel}
+                      className="ant-btn-muted "
+                    >
+                      Discard
+                    </Button>,
+                    <Button key="add" type="primary" onClick={handleAddIP}>
+                      Add
+                    </Button>,
+                  ]}
+                >
+                  <Form
+                    form={form}
+                    layout="vertical"
+                    name="add_ip_form"
+                    className="form-bg"
+                  >
+                    <Form.Item name="Employee Name" label="Employee Name" rules={[{ required: true }]}>
+        <Select
+          placeholder="Select Employee Name"
+     
+          allowClear
+        >
+          <Option value="male">Ahmed X</Option>
+          <Option value="female">Mohamed Y</Option>
+          <Option value="other">other Z</Option>
+        </Select>
+      </Form.Item>
+                    <Form.Item
+                      name="Start Date"
+                      label="Start Date"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please enter a Start Date!",
+                        },
+                        {
+                          pattern: new RegExp(
+                            /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+                          ),
+                          message: "Please enter a valid IP address!",
+                        },
+                      ]}
+                    >
+                      <Input placeholder="Enter new IP" />
+                    </Form.Item>
+                    <Form.Item
+                      name="End Date"
+                      label="End Date"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please enter a End Date!",
+                        },
+                        {
+                          pattern: new RegExp(
+                            /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+                          ),
+                          message: "Please enter a valid IP address!",
+                        },
+                      ]}
+                    >
+                      <Input placeholder="Enter new IP" />
+                    </Form.Item>
+                  </Form>
+                </Modal>
+                </div>
+                <div className="sec-list">
+                  <div className="item">
+                    <div className="">
+                      <div style={{ display: "flex" }}>
+                
+                        <h6>Employee Name<span className="text-success"> (Active)</span> </h6>
+                      </div>
+
+                      <p className="text-muted ch-mr">
+                        <span>
+                        Added on 23/ 24/ 2023 
+
+                        </span>
+                        <span>
+                        | 
+                        </span>
+                       
+                        <span>
+                       Start date 20/10/2024
+                          </span>
+                          <span>
+                          | 
+                          </span>
+                        
+                          <span>
+                          End Date 25/10/2024
+                          </span>
+                    
+                      </p>
+                    </div>
+                    <div style={{ display: "flex" }}>
+                      <Button type="link" onClick={showModal}>
+                        <EditIcon />
+                      </Button>
+                     
+                    </div>
+                  </div>
+                  <div className="item">
+                    <div className="">
+                      <div style={{ display: "flex" }}>
+                
+                        <h6>Employee Name</h6>
+                      </div>
+
+                      <p className="text-muted ch-mr">
+                        <span>
+                        Added on 23/ 24/ 2023 
+
+                        </span>
+                        <span>
+                        | 
+                        </span>
+                       
+                        <span>
+                       Start date 20/10/2024
+                          </span>
+                          <span>
+                          | 
+                          </span>
+                        
+                          <span>
+                          End Date 25/10/2024
+                          </span>
+                    
+                      </p>
+                    </div>
+                    <div style={{ display: "flex" }}>
+                      <Button type="link" onClick={showModal}>
+                        <EditIcon />
+                      </Button>
+                      <Button type="link">
+                        <DeleteIcon />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="sec-card ">
+                <div className="header">
+                  <h6>Delegated To Me</h6>
+         
+                </div>
+                <div className="sec-list">
+                  <div className="item">
+                    <div className="">
+                      <div style={{ display: "flex" }}>
+                
+                        <h6>Employee Name<span className="text-success"> (Active)</span> </h6>
+                      </div>
+
+                      <p className="text-muted ch-mr">
+                        <span>
+                        Added on 23/ 24/ 2023 
+
+                        </span>
+                        <span>
+                        | 
+                        </span>
+                       
+                        <span>
+                       Start date 20/10/2024
+                          </span>
+                          <span>
+                          | 
+                          </span>
+                        
+                          <span>
+                          End Date 25/10/2024
+                          </span>
+                    
+                      </p>
+                    </div>
+               
+                  </div>
+                  <div className="item">
+                    <div className="">
+                      <div style={{ display: "flex" }}>
+                
+                        <h6>Employee Name</h6>
+                      </div>
+
+                      <p className="text-muted ch-mr">
+                        <span>
+                        Added on 23/ 24/ 2023 
+
+                        </span>
+                        <span>
+                        | 
+                        </span>
+                       
+                        <span>
+                       Start date 20/10/2024
+                          </span>
+                          <span>
+                          | 
+                          </span>
+                        
+                          <span>
+                          End Date 25/10/2024
+                          </span>
+                    
+                      </p>
+                    </div>
+               
+                  </div>
+                </div>
+              </div>
+               </>
+           
+           
+ 
+
+              
             )}
           </Card>
         </Col>

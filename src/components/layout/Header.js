@@ -37,6 +37,8 @@ import {
 import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
 import avtar from "../../assets/images/team-2.jpg";
+import orgLogo from "../../assets/images/org-logo.png";
+import OrgSwitcher from "../../pages/OrgSwitcher"; 
 
 const ButtonContainer = styled.div`
   .ant-btn-primary {
@@ -293,6 +295,7 @@ function Header({
           </div>
         </Col>
         <Col span={24} md={18} className="header-control">
+        
           <Badge size="small" count={4}>
             <Dropdown overlay={menu} trigger={["click"]}>
               <a
@@ -304,6 +307,7 @@ function Header({
               </a>
             </Dropdown>
           </Badge>
+          
           <Button type="link" onClick={showDrawer}>
             {logsetting}
           </Button>
@@ -421,15 +425,18 @@ function Header({
               </div>
             </div>
           </Drawer>
+       
           <Link to="/sign-in" className="btn-sign-in">
             {profile}
             <span>Login</span>
           </Link>
-          <Input
+          {/* <Input
             className="header-search"
             placeholder="Type here..."
             prefix={<SearchOutlined />}
-          />
+          /> */}
+       
+      <OrgSwitcher/>
         </Col>
       </Row>
     </>

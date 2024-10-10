@@ -168,11 +168,7 @@ function Sidenav({ color }) {
         <span>USM</span>
       </div>
       <hr />
-      <div className="brand">
-        <img src={orgLogo} alt="" />
-        <span>Org-Name</span>
-      </div>
-      <hr />
+ 
       <Menu theme="light" mode="inline">
         <Menu.Item key="1">
           <NavLink to="/dashboard">

@@ -28,6 +28,7 @@ h5,
 h6,
 li {
     color: #013C68;
+    margin-bottom:0 ;
 }
 
 h1.ant-typography,
@@ -319,6 +320,7 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .header-
 .sec-list .item svg {
     width: 20px;
     height: auto;
+    margin-right: 5px;
 }
 
 .sec-list .item div:has(svg) {
@@ -327,10 +329,7 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .header-
     margin-top: 5px;
 }
 
-.sec-list .item h6 {
-    margin-left: 5px;
 
-}
 
 .sec-list .item .succsess svg path {
     fill: #28C841;
@@ -493,6 +492,12 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .header-
 
 .svg-white path {
     fill: #fff;
+}
+.svg-green path {
+    fill: #28C841;
+}
+.svg-red path {
+    fill: #FE5F57;
 }
 
 /* App.css */
@@ -939,3 +944,70 @@ padding: 0;
             width: 200px ;
             height: auto;
         }
+        .org-logo{
+         height: 37px;
+         width: auto;
+        }
+        .org-logo span{
+            color: #013C68;
+            margin-left: 10px ;
+            font-weight: bold;
+        }
+        .warning-text {
+            color: #FEBC2E;}
+            .danger-text {
+                color: #FE5F57;}
+                .success-text {
+                    color: #28C841;}
+                    .item.org-list:hover{
+background-color: #013C68;
+border-radius: 5px;
+                    }
+                    .item.org-list:hover h6{
+          color: #fff;
+                 
+                                            }
+                                            .item.org-list:hover svg path{
+                                                fill: #fff;
+                                       }
+                                       .item.org-list .ant-btn:hover{
+background: transparent;
+                                       }
+               
+                    .item.org-list .r-side{
+                        display: flex;
+                        align-items: center;
+                    }
+                    .item.org-list .r-side h6{
+                       margin-bottom: 0;
+                    margin-right: 5px;}
+                  .org-users {
+                        background-color: #fafdff;
+                        border: solid 1px #99B1C3;
+                        border-radius: 5px;
+                        width: 100%;
+                        padding: 10px;
+                    }
+                    .org-users-tittle{
+                        display: flex;
+                        justify-content: space-between;
+                        border-bottom: #99B1C3 1px solid;
+                    }
+
+                    .org-list2{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                    .header-custom-1 .ant-tabs-nav{
+                    width: 100%;
+                    }
+                    /* .ant-card-head:has(.header-custom-1){
+                        border-bottom: none;
+                    } */
+                    .header-custom-1 h4{
+                        margin-top: 10px;
+                    }
+                    .ch-mr *{
+                        margin-right: 5px;
+                    }
