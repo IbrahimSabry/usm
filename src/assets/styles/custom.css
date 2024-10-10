@@ -1011,3 +1011,6 @@ background: transparent;
                     .ch-mr *{
                         margin-right: 5px;
                     }
+                    .w-100{
+                        width: 100%;
+                    }

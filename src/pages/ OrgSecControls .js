@@ -102,7 +102,7 @@ function OrgSec() {
               }
             >
               <Row justify="start" align="middle" className="users-list ">
-                <Col className="ant-card-head w-100">
+                <Col className="ant-card-head w-100 ">
                 <Tabs
                     defaultActiveKey="1"
                     onChange={handleTabChange}
